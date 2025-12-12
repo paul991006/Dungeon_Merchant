@@ -65,6 +65,13 @@ hosting/.cache
 /.firebase/
 /emulator-ui/
 
+# Firebase SDK ignore
+Assets/Firebase/
+Assets/Plugins/Android/Firebase*
+Assets/Plugins/iOS/Firebase*
+Assets/StreamingAssets/google-services.json
+Assets/StreamingAssets/GoogleService-Info.plist
+
 ################################
 # Logs
 ################################

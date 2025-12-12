@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "487411117708",
+    "project_id": "dungeonmerchant-fb877",
+    "storage_bucket": "dungeonmerchant-fb877.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487411117708:android:6c7ef1b9115da541a955a9",
+        "android_client_info": {
+          "package_name": "com.firebase.test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAt15O29tCTbt074ul4ZzfPh5c5lygnVUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
