@@ -1,22 +1,49 @@
+using Firebase.Database;
+using Firebase.Extensions;
 using Firebase;
-using Firebase.Auth;
 using UnityEngine;
+using System;
 
 public class FirebaseInit : MonoBehaviour
 {
-    private void Awake()
+    public static FirebaseInit Instance { get; private set; }
+    public DatabaseReference m_dataBaseRef { get; private set; }
+
+    [Header("DataBase URL")]
+    [SerializeField]
+    string m_databaseURL = "https://dungeon-merchant-9b1b9-default-rtdb.firebaseio.com";
+
+    #region UnityMethod
+    void Awake()
     {
-        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
+        if (Instance == null)
         {
-            var status = task.Result;
-            if (status == DependencyStatus.Available)
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            Initialized();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    #endregion
+
+    #region Initialized
+    void Initialized()
+    {
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.Result == DependencyStatus.Available)
             {
-                Debug.Log("Firebase 초기화 성공!");
+                FirebaseApp app = FirebaseApp.DefaultInstance;
+                app.Options.DatabaseUrl = new Uri(m_databaseURL);
+                m_dataBaseRef = FirebaseDatabase.GetInstance(app).RootReference;
+                Debug.Log("초기화 성공");
             }
             else
-            {
-                Debug.LogError($"Firebase 초기화 실패: {status}");
-            }
+                Debug.Log("초기화 실패");
         });
     }
+    #endregion
 }
