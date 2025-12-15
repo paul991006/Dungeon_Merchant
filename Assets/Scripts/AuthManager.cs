@@ -5,8 +5,8 @@ using Firebase.Extensions;
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AuthManager : MonoBehaviour
 {
@@ -21,6 +21,9 @@ public class AuthManager : MonoBehaviour
     [SerializeField] Text warningText;
     [SerializeField] Text successText;
 
+    Coroutine warningCoroutine;
+    Coroutine successCoroutine;
+
     void Awake()
     {
         if (Instance == null)
@@ -31,9 +34,10 @@ public class AuthManager : MonoBehaviour
             Initialized();
         }
         else
+        {
             Destroy(gameObject);
+        }
     }
-
 
     void Initialized()
     {
@@ -48,7 +52,6 @@ public class AuthManager : MonoBehaviour
             if (task.IsCompletedSuccessfully)
             {
                 FirebaseUser user = task.Result.User;
-                Debug.Log("로그인 성공: " + user.UserId);
                 LoadScene();
             }
             else
@@ -70,7 +73,6 @@ public class AuthManager : MonoBehaviour
             }
 
             FirebaseUser newUser = task.Result.User;
-            Debug.Log("회원가입 성공: " + newUser.UserId);
 
             CreateUserData(newUser);
         });
@@ -94,12 +96,11 @@ public class AuthManager : MonoBehaviour
         {
             if (task.IsCompletedSuccessfully)
             {
-                Debug.Log("사용자 데이터 생성 성공");
                 ShowSuccess("회원가입에 성공했습니다!");
             }
             else
             {
-                Debug.LogError("사용자 데이터 생성 실패: " + task.Exception);
+                ShowWarning("회원가입에 실패했습니다.");
             }
         });
     }
@@ -138,15 +139,12 @@ public class AuthManager : MonoBehaviour
         }
 
         // FirebaseException 자체를 못 찾았을 때
-        Debug.LogError("Unknown SignUp Exception: " + exception);
         ShowWarning("알 수 없는 오류가 발생했습니다.");
     }
 
-
-    Coroutine warningCoroutine;
-
     void ShowWarning(string message)
     {
+        HideSuccess();
         if (warningCoroutine != null) StopCoroutine(warningCoroutine);
 
         warningCoroutine = StartCoroutine(WarningRoutine(message));
@@ -159,16 +157,25 @@ public class AuthManager : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        warningPanel.SetActive(false);
-        warningCoroutine = null;
+        HideWarning();
     }
 
-    Coroutine successCoroutine;
+    public void HideWarning()
+    {
+        if (warningCoroutine != null)
+        {
+            StopCoroutine(warningCoroutine);
+            warningCoroutine = null;
+        }
+
+        warningPanel.SetActive(false);
+    }
 
     void ShowSuccess(string message)
     {
-        if (successCoroutine != null)
-            StopCoroutine(successCoroutine);
+        HideWarning();
+
+        if (successCoroutine != null) StopCoroutine(successCoroutine);
 
         successCoroutine = StartCoroutine(SuccessRoutine(message));
     }
@@ -180,9 +187,20 @@ public class AuthManager : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        successPanel.SetActive(false);
-        successCoroutine = null;
+        HideSuccess();
     }
+
+    public void HideSuccess()
+    {
+        if (successCoroutine != null)
+        {
+            StopCoroutine(successCoroutine);
+            successCoroutine = null;
+        }
+
+        successPanel.SetActive(false);
+    }
+
 
     void LoadScene()
     {
