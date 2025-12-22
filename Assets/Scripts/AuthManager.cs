@@ -4,9 +4,10 @@ using Firebase.Database;
 using Firebase.Extensions;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class AuthManager : MonoBehaviour
 {
@@ -81,27 +82,26 @@ public class AuthManager : MonoBehaviour
     void CreateUserData(FirebaseUser user)
     {
         string userId = user.UserId;
-        
-        var userData = new UserData(
-            user.Email,
-            0,
-            1,
-            0,
-            DateTimeOffset.UtcNow.ToUnixTimeSeconds()
-        );
 
-        string json = JsonUtility.ToJson(userData);
-
-        m_dbRef.Child("users").Child(userId).SetRawJsonValueAsync(json).ContinueWithOnMainThread(task =>
+        var userData = new Dictionary<string, object>()
         {
-            if (task.IsCompletedSuccessfully)
-            {
-                ShowSuccess("회원가입에 성공했습니다!");
+            { "아이디", user.Email },
+            { "lastLogin", DateTimeOffset.UtcNow.ToUnixTimeSeconds() },
+            { "currency", new Dictionary<string, object> { { "essence", 0 } } },
+            { "playerStats", new Dictionary<string, object>
+                {
+                    { "hpLevel", 0 },
+                    { "atkLevel", 0 },
+                    { "aspLevel", 0 },
+                    { "defLevel", 0 }
+                }
             }
-            else
-            {
-                ShowWarning("회원가입에 실패했습니다.");
-            }
+        };
+
+        m_dbRef.Child("users").Child(userId).UpdateChildrenAsync(userData).ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompletedSuccessfully) ShowSuccess("회원가입에 성공했습니다!");
+            else ShowWarning("회원가입에 실패했습니다.");
         });
     }
 

@@ -11,26 +11,26 @@ public class PlayerStatUpgrade : MonoBehaviour
 
     public void UpgradeHp()
     {
-        stats.maxHealth += 2;
-        stats.currentHealth = stats.maxHealth;
-        stats.SaveStats();
+        stats.maxHp += 2;
+        stats.currentHp = stats.maxHp;
+        stats.SaveStatsToDatabase();
     }
 
     public void UpgradeAttack()
     {
         stats.attackPower += 1;
-        stats.SaveStats();
+        stats.SaveStatsToDatabase();
     }
 
     public void UpgradeAttackSpeed()
     {
         stats.attackSpeed += 0.01f;
-        stats.SaveStats();
+        stats.SaveStatsToDatabase();
     }
 
     public void UpgradeDefense()
     {
         stats.defense += 1;
-        stats.SaveStats();
+        stats.SaveStatsToDatabase();
     }
 }
