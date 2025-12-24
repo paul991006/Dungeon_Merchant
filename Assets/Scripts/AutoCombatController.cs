@@ -9,55 +9,35 @@ public class AutoCombatController : MonoBehaviour
 
     private Animator anim;
     private PlayerStats stats;
-    private PlayerMovement movement;
-    private AttackHit attackHit;
+    public AttackHit attackHit;
 
     private float attackTimer;
     private int lastAttackIndex = -1;
-
-    private Transform currentTarget;
 
     void Awake()
     {
         anim = GetComponent<Animator>();
         stats = GetComponent<PlayerStats>();
-        movement = GetComponent<PlayerMovement>();
         attackHit = GetComponentInChildren<AttackHit>();
     }
 
     void Update()
     {
+        if (GameManager.Instance.combatMode != CombatMode.Main) return;
+
         attackTimer += Time.deltaTime;
 
         Transform autoTarget = FindClosestMonster();
-        currentTarget = autoTarget;
 
-        if (autoTarget != null) FaceTarget(autoTarget);
+        if (autoTarget == null) return;
 
-        if (!CanAttack()) return;
-
-        if (!CanAttackTarget(currentTarget)) return;
-
-        bool manualAttack = Input.GetMouseButtonDown(0);
-
-        if (!manualAttack && autoTarget == null) return;
+        FaceTarget(autoTarget);
 
         //ÄðÅ¸ÀÓ Ã¼Å©
         if (attackTimer < 1f / stats.attackSpeed) return;
 
         TriggerRandomAttack();
         attackTimer = 0f;
-    }
-
-    bool CanAttackTarget(Transform target)
-    {
-        if (target == null) return false;
-
-        MonsterMovement mm = target.GetComponent<MonsterMovement>();
-
-        if (mm != null && !mm.CanFight()) return false;
-
-        return true;
     }
 
     Transform FindClosestMonster()
@@ -73,7 +53,14 @@ public class AutoCombatController : MonoBehaviour
 
         foreach (var hit in hits)
         {
+            MonsterMovement mm = hit.GetComponent<MonsterMovement>();
+            
+            if (mm == null) continue;
+
+            if (!mm.CanFight()) continue;
+
             float dist = Vector2.Distance(attackPoint.position, hit.transform.position);
+            
             if (dist < minDist)
             {
                 minDist = dist;
@@ -89,9 +76,12 @@ public class AutoCombatController : MonoBehaviour
         float dir = target.position.x - transform.position.x;
         if (Mathf.Abs(dir) < 0.01f) return;
 
-        Vector3 scale = transform.localScale;
-        scale.x = Mathf.Sign(dir) * Mathf.Abs(scale.x);
-        transform.localScale = scale;
+        float scaleX = Mathf.Abs(transform.localScale.x);
+        transform.localScale = new Vector3(
+            dir > 0 ? scaleX : -scaleX,
+            transform.localScale.y,
+            transform.localScale.z
+        );
     }
 
     void TriggerRandomAttack()
@@ -105,15 +95,6 @@ public class AutoCombatController : MonoBehaviour
         lastAttackIndex = attackIndex;
 
         anim.SetTrigger($"Attack{attackIndex}");
-    }
-
-    bool CanAttack()
-    {
-        if (!movement.IsGrounded()) return false;
-        if (!movement.IsIdle()) return false;
-        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack")) return false;
-        if (anim.IsInTransition(0)) return false;
-        return true;
     }
 
     public void AE_AttackHit()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterMovement : MonoBehaviour
 {
-    public float moveSpeed = 2f;
+    public float moveSpeed = 4f;
     public Transform targetPoint; //몬스터가 설 위치
     public float arriveDelay = 1;
 
@@ -18,6 +18,14 @@ public class MonsterMovement : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    void Start()
+    {
+        if (animator != null && isMoving)
+        {
+            animator.SetBool("isRun", true);
+        }
     }
 
     void FixedUpdate()

@@ -204,6 +204,7 @@ public class AuthManager : MonoBehaviour
 
     void LoadScene()
     {
+        GameManager.Instance.SetMode(CombatMode.Main);
         SceneManager.LoadSceneAsync("02_Main");
     }
 }

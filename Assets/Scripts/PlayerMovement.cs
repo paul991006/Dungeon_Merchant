@@ -16,16 +16,6 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public bool IsGrounded()
-    {
-        return grounded;
-    }
-
-    public bool IsIdle()
-    {
-        return Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f;
-    }
-
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
@@ -34,8 +24,7 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = new Vector2(x * moveSpeed, rb.linearVelocity.y);
 
         //방향
-        if (x != 0)
-            transform.localScale = new Vector3(Mathf.Sign(x), 1, 1);
+        if (x != 0) transform.localScale = new Vector3(Mathf.Sign(x), 1, 1);
 
         //점프
         if (Input.GetKeyDown(KeyCode.Space) && grounded && CanJump())
