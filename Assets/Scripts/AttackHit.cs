@@ -11,7 +11,7 @@ public class AttackHit : MonoBehaviour
         stats = GetComponentInParent<PlayerStats>();
     }
 
-    // Animation Event
+    //Animation Event
     public void AE_AttackHit()
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(
@@ -23,8 +23,12 @@ public class AttackHit : MonoBehaviour
         foreach (var hit in hits)
         {
             Monster m = hit.GetComponent<Monster>();
-            if (m != null)
-                m.TakeDamage(stats.attackPower);
+            if (m == null) continue;
+
+            MonsterMovement mm = hit.GetComponent<MonsterMovement>();
+            if (mm != null && !mm.CanFight()) continue;
+
+            m.TakeDamage(stats.attackPower);
         }
     }
 }

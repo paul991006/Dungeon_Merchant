@@ -30,14 +30,14 @@ public class PlayerMovement : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
 
-        // 이동
+        //이동
         rb.linearVelocity = new Vector2(x * moveSpeed, rb.linearVelocity.y);
 
-        // 방향
+        //방향
         if (x != 0)
             transform.localScale = new Vector3(Mathf.Sign(x), 1, 1);
 
-        // 점프
+        //점프
         if (Input.GetKeyDown(KeyCode.Space) && grounded && CanJump())
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        // 애니메이션
+        //애니메이션
         anim.SetFloat("AirSpeedY", rb.linearVelocity.y);
         anim.SetInteger("AnimState", Mathf.Abs(x) > 0 ? 1 : 0);
     }

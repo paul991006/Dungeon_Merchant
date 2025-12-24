@@ -10,15 +10,19 @@ public class AutoCombatController : MonoBehaviour
     private Animator anim;
     private PlayerStats stats;
     private PlayerMovement movement;
+    private AttackHit attackHit;
 
     private float attackTimer;
     private int lastAttackIndex = -1;
+
+    private Transform currentTarget;
 
     void Awake()
     {
         anim = GetComponent<Animator>();
         stats = GetComponent<PlayerStats>();
         movement = GetComponent<PlayerMovement>();
+        attackHit = GetComponentInChildren<AttackHit>();
     }
 
     void Update()
@@ -26,10 +30,13 @@ public class AutoCombatController : MonoBehaviour
         attackTimer += Time.deltaTime;
 
         Transform autoTarget = FindClosestMonster();
+        currentTarget = autoTarget;
 
         if (autoTarget != null) FaceTarget(autoTarget);
 
         if (!CanAttack()) return;
+
+        if (!CanAttackTarget(currentTarget)) return;
 
         bool manualAttack = Input.GetMouseButtonDown(0);
 
@@ -40,6 +47,17 @@ public class AutoCombatController : MonoBehaviour
 
         TriggerRandomAttack();
         attackTimer = 0f;
+    }
+
+    bool CanAttackTarget(Transform target)
+    {
+        if (target == null) return false;
+
+        MonsterMovement mm = target.GetComponent<MonsterMovement>();
+
+        if (mm != null && !mm.CanFight()) return false;
+
+        return true;
     }
 
     Transform FindClosestMonster()
@@ -96,6 +114,11 @@ public class AutoCombatController : MonoBehaviour
         if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack")) return false;
         if (anim.IsInTransition(0)) return false;
         return true;
+    }
+
+    public void AE_AttackHit()
+    {
+        attackHit.AE_AttackHit();
     }
 
 #if UNITY_EDITOR
