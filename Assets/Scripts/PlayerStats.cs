@@ -1,6 +1,3 @@
-using Firebase.Auth;
-using Firebase.Database;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -20,68 +17,20 @@ public class PlayerStats : MonoBehaviour
 
     public float attackRange = 1.5f;
 
-    private DatabaseReference db;
-    private string uid;
-
-    void Awake()
+    void Start()
     {
-        uid = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
-        db = FirebaseDatabase.DefaultInstance.RootReference;
-
-        LoadStatsFromDatabase();
+        ApplyFromPlayerData();
     }
 
-    public void LoadStatsFromDatabase()
+    //PlayerData → PlayerStats 반영
+    public void ApplyFromPlayerData(bool fullHeal = true)
     {
-        db.Child("users").Child(uid).Child("playerStats").GetValueAsync().ContinueWith(task =>
-            {
-                if (task.IsFaulted || task.IsCanceled)
-                {
-                    Debug.LogWarning("Failed to load player stats from database. Using defaults.");
-                    SetDefaultLevels();
-                    RecalculateStats(true);
-                    return;
-                }
+        hpLevel = PlayerData.Instance.hpLevel;
+        atkLevel = PlayerData.Instance.atkLevel;
+        aspLevel = PlayerData.Instance.aspLevel;
+        defLevel = PlayerData.Instance.defLevel;
 
-                if (!task.Result.Exists)
-                {
-                    SetDefaultLevels();
-                    SaveStatsToDatabase();
-                    RecalculateStats(true);
-                    return;
-                }
-
-                var s = task.Result;
-
-                hpLevel = s.Child("hpLevel").Exists ? int.Parse(s.Child("hpLevel").Value.ToString()) : 0;
-                atkLevel = s.Child("atkLevel").Exists ? int.Parse(s.Child("atkLevel").Value.ToString()) : 0;
-                aspLevel = s.Child("aspLevel").Exists ? int.Parse(s.Child("aspLevel").Value.ToString()) : 0;
-                defLevel = s.Child("defLevel").Exists ? int.Parse(s.Child("defLevel").Value.ToString()) : 0;
-
-                RecalculateStats(true);
-            });
-    }
-
-    public void SaveStatsToDatabase()
-    {
-        var data = new Dictionary<string, object>
-        {
-            { "hpLevel", hpLevel },
-            { "atkLevel", atkLevel },
-            { "aspLevel", aspLevel },
-            { "defLevel", defLevel }
-        };
-
-        //기존 playerStats 외 다른 데이터 덮어쓰기 방지
-        db.Child("users").Child(uid).Child("playerStats").UpdateChildrenAsync(data);
-    }
-
-    void SetDefaultLevels()
-    {
-        hpLevel = 0;
-        atkLevel = 0;
-        aspLevel = 0;
-        defLevel = 0;
+        RecalculateStats(fullHeal);
     }
 
     public void RecalculateStats(bool fullHeal = false)

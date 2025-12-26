@@ -21,22 +21,22 @@ public class PlayerUpgradeManager : MonoBehaviour
 
     public void UpgradeHp()
     {
-        TryUpgrade(ref stats.hpLevel, 90);
+        TryUpgrade(ref PlayerData.Instance.hpLevel, 90);
     }
 
     public void UpgradeAttack()
     {
-        TryUpgrade(ref stats.atkLevel, 90);
+        TryUpgrade(ref PlayerData.Instance.atkLevel, 90);
     }
 
     public void UpgradeAttackSpeed()
     {
-        TryUpgrade(ref stats.aspLevel, 100, 1.3f);
+        TryUpgrade(ref PlayerData.Instance.aspLevel, 100, 1.3f);
     }
 
     public void UpgradeDefense()
     {
-        TryUpgrade(ref stats.defLevel, 90);
+        TryUpgrade(ref PlayerData.Instance.defLevel, 90);
     }
 
     void TryUpgrade(ref int level, int maxLevel, float weight = 1f)
@@ -44,10 +44,10 @@ public class PlayerUpgradeManager : MonoBehaviour
         if (level >= maxLevel) return;
 
         int cost = Mathf.RoundToInt(GetUpgradeCost(level + 1) * weight);
-        if (!currency.UseEssence(cost)) return;
+        if (!PlayerData.Instance.UseEssence(cost)) return;
 
         level++;
-        stats.RecalculateStats();
-        stats.SaveStatsToDatabase();
+        PlayerData.Instance.SaveStatsToDatabase();
+        stats.ApplyFromPlayerData(false);
     }
 }

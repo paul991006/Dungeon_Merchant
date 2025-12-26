@@ -50,18 +50,38 @@ public class AuthManager : MonoBehaviour
     {
         m_auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task =>
         {
-            if (task.IsCompletedSuccessfully)
-            {
-                FirebaseUser user = task.Result.User;
-                LoadScene();
-            }
-            else
+            if (!task.IsCompletedSuccessfully)
             {
                 ShowWarning("이메일 또는 비밀번호가 올바르지 않습니다.");
                 return;
             }
+            StartCoroutine(LoadUserDataAndEnterMain());
         });
     }
+
+    IEnumerator LoadUserDataAndEnterMain()
+    {
+        string uid = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+        bool done = false;
+
+        m_dbRef.Child("users").Child(uid).GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.Result.Exists)
+            {
+                PlayerData.Instance.LoadFromSnapshot(task.Result);
+            }
+            else
+            {
+                Debug.LogError("유저 데이터 없음");
+            }
+            done = true;
+        });
+
+        yield return new WaitUntil(() => done);
+
+        LoadScene();
+    }
+
 
     public void SignUp(string email, string password)
     {
@@ -138,7 +158,7 @@ public class AuthManager : MonoBehaviour
             }
         }
 
-        // FirebaseException 자체를 못 찾았을 때
+        //FirebaseException 자체를 못 찾았을 때
         ShowWarning("알 수 없는 오류가 발생했습니다.");
     }
 

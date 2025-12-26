@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 2583298556324768103}
   - component: {fileID: 7727349699506460451}
   - component: {fileID: 2898265112329203698}
-  - component: {fileID: 1587680671857687045}
   - component: {fileID: 6027962207060762505}
   - component: {fileID: 4977972478959341997}
   - component: {fileID: 3548730691639469114}
@@ -249,18 +248,6 @@ MonoBehaviour:
     m_Bits: 128
   attackPoint: {fileID: 3238043354644080011}
   attackHit: {fileID: 5355697164927879617}
---- !u!114 &1587680671857687045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6887036079845943445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa78753ea26ec624c8eb38bed862cb8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6027962207060762505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,10 +269,6 @@ MonoBehaviour:
   attackBtnText: {fileID: 0}
   attackSpeedBtnText: {fileID: 0}
   defenseBtnText: {fileID: 0}
-  hpUpgradeCost: 0
-  attackUpgradeCost: 0
-  attackSpeedUpgradeCost: 0
-  defenseUpgradeCost: 0
 --- !u!114 &4977972478959341997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84fc2f950ce4134a8ac4455d8711c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  essence: 10000
 --- !u!114 &3548730691639469114
 MonoBehaviour:
   m_ObjectHideFlags: 0
