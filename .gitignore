@@ -11,6 +11,10 @@
 MemoryCaptures/
 UserSettings/
 
+############################
+# IDE / 프로젝트 파일
+############################
+
 # Ignore auto-generated .csproj and solution files
 ExportedObj/
 .consulo/
@@ -30,14 +34,23 @@ ExportedObj/
 *.opendb
 *.VC.db
 
+############################
 # Unity Asset Store tools
+############################
+
 Assets/AssetStoreTools*
 
-# Crash files
+############################
+# Crash / Dump files
+############################
+
 *.stacktrace
 *.dmp
 
+############################
 # OS-specific files
+############################
+
 .DS_Store
 Thumbs.db
 
@@ -45,7 +58,7 @@ Thumbs.db
 # Firebase (Hosting / Functions)
 ################################
 
-# Firebase build and deployment files
+# Firebase build and deployment logs
 /firebase-debug.log
 /firebase-debug.*.log
 .firebaserc
@@ -65,16 +78,35 @@ hosting/.cache
 /.firebase/
 /emulator-ui/
 
-# Firebase SDK ignore
+################################
+# Firebase SDK / Unity Plugins
+################################
+
+# Firebase SDK (Unity)
 Assets/Firebase/
 Assets/Plugins/Android/Firebase*
 Assets/Plugins/iOS/Firebase*
+
+# Firebase config files (보안상 Git 제외)
 Assets/StreamingAssets/google-services.json
 Assets/StreamingAssets/GoogleService-Info.plist
+
+# External Dependency Manager (Google EDM)
+/Assets/ExternalDependencyManager/
+/Assets/Google/
+/Assets/PlayServicesResolver/
+
+################################
+# 사용자 정의 Firebase 폴더
+################################
+
+# Firebase Database (용량 문제 방지)
+/Firebase Database/
 
 ################################
 # Logs
 ################################
+
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -83,4 +115,6 @@ yarn-error.log*
 ################################
 # Environment files
 ################################
-/.env.*
+
+.env
+.env.*
