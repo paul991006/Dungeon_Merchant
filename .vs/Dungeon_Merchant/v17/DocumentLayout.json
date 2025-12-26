@@ -1,89 +1,93 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\",
+  "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|c:\\users\\dclass\\desktop\\dungeon_merchant\\dungeon_merchant\\assets\\scripts\\tabtonextinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tabtonextinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|c:\\users\\dclass\\desktop\\dungeon_merchant\\dungeon_merchant\\assets\\scripts\\passwordtoggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\passwordtoggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\authmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\authmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playercombatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercombatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\autocombatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\autocombatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\autocombatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\monstermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|c:\\users\\user\\desktop\\dongeon_merchant\\dungeon_merchant\\assets\\scripts\\logininputhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\logininputhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\authmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\authmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|c:\\users\\user\\desktop\\dongeon_merchant\\dungeon_merchant\\assets\\scripts\\tabtonextinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tabtonextinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\passwordtoggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\passwordtoggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playercombatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercombatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\monstermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\monstermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\attackhit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\attackhit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\attackhit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\firebaseinit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\firebaseinit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\firebaseinit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\loginsceneui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\loginsceneui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\loginsceneui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\monsterspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\monsterspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\monsterspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playerstatsdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playerstatsdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerstatsdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playerupgrademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playerupgrademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerupgrademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playercurrency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playercurrency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercurrency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playerinfoui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playerinfoui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerinfoui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playerscalecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\playerscalecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerscalecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\assets\\scripts\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CC3433C-967B-EF9C-5F01-CFAEB370F2FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -94,15 +98,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "LoginInputHandler.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\LoginInputHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LoginInputHandler.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\LoginInputHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LoginInputHandler.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA1wCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-26T03:55:51.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "TabToNextInput.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\TabToNextInput.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\TabToNextInput.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\TabToNextInput.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\TabToNextInput.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\TabToNextInput.cs",
               "RelativeToolTip": "Assets\\Scripts\\TabToNextInput.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -111,24 +128,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "PasswordToggle.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PasswordToggle.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PasswordToggle.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PasswordToggle.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PasswordToggle.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PasswordToggle.cs",
               "RelativeToolTip": "Assets\\Scripts\\PasswordToggle.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-24T12:45:41.002Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-24T12:45:41.002Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "PlayerCombatController.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerCombatController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerCombatController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerCombatController.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerCombatController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerCombatController.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerCombatController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -136,11 +152,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "PlayerController.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAIwCAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -148,11 +164,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\GameManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAAwAcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -160,11 +176,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Monster.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\Monster.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\Monster.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Monster.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\Monster.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\Monster.cs",
               "RelativeToolTip": "Assets\\Scripts\\Monster.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAYwDMAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -172,11 +188,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MonsterMovement.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\MonsterMovement.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\MonsterMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MonsterMovement.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\MonsterMovement.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\MonsterMovement.cs",
               "RelativeToolTip": "Assets\\Scripts\\MonsterMovement.cs",
               "ViewState": "AgIAAEIAAAAAAAAAAAAIwBwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -184,11 +200,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "MonsterSpawner.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\MonsterSpawner.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\MonsterSpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MonsterSpawner.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\MonsterSpawner.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\MonsterSpawner.cs",
               "RelativeToolTip": "Assets\\Scripts\\MonsterSpawner.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -196,11 +212,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "PlayerCurrency.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerCurrency.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerCurrency.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerCurrency.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerCurrency.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerCurrency.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerCurrency.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAswC0AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -208,11 +224,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "PlayerMovement.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerMovement.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerMovement.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerMovement.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerMovement.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerMovement.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAIwBoAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -220,23 +236,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "AutoCombatController.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\AutoCombatController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\AutoCombatController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AutoCombatController.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\AutoCombatController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\AutoCombatController.cs",
               "RelativeToolTip": "Assets\\Scripts\\AutoCombatController.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAQwDsAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAmwBkAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-22T04:21:40.791Z"
+              "WhenOpened": "2025-12-22T04:21:40.791Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "AttackHit.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\AttackHit.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\AttackHit.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AttackHit.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\AttackHit.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\AttackHit.cs",
               "RelativeToolTip": "Assets\\Scripts\\AttackHit.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAUwCIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -244,11 +261,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "PlayerUpgradeManager.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerUpgradeManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerUpgradeManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerUpgradeManager.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerUpgradeManager.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerUpgradeManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerUpgradeManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -256,11 +273,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "PlayerStats.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerStats.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerStats.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerStats.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerStats.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerStats.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerStats.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -268,11 +285,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "PlayerInfoUI.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerInfoUI.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerInfoUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerInfoUI.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerInfoUI.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerInfoUI.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerInfoUI.cs",
               "ViewState": "AgIAABQAAAAAAAAAAADwvzIAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -280,11 +297,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "PlayerStatsData.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerStatsData.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerStatsData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerStatsData.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerStatsData.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerStatsData.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerStatsData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -292,11 +309,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "PlayerScaleController.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerScaleController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerScaleController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerScaleController.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerScaleController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\PlayerScaleController.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerScaleController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -304,11 +321,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "LoginSceneUI.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\LoginSceneUI.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\LoginSceneUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\LoginSceneUI.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\LoginSceneUI.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\LoginSceneUI.cs",
               "RelativeToolTip": "Assets\\Scripts\\LoginSceneUI.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -316,11 +333,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "UserData.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\UserData.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\UserData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UserData.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\UserData.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\UserData.cs",
               "RelativeToolTip": "Assets\\Scripts\\UserData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -330,21 +347,22 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "AuthManager.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\AuthManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\AuthManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AuthManager.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\AuthManager.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\AuthManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\AuthManager.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAywM4AAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAAwM4AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T04:34:06.029Z"
+              "WhenOpened": "2025-12-15T04:34:06.029Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "FirebaseInit.cs",
-              "DocumentMoniker": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\FirebaseInit.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\FirebaseInit.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\FirebaseInit.cs",
-              "ToolTip": "C:\\Users\\Dclass\\Desktop\\Dungeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\FirebaseInit.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Dongeon_Merchant\\Dungeon_Merchant\\Assets\\Scripts\\FirebaseInit.cs",
               "RelativeToolTip": "Assets\\Scripts\\FirebaseInit.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
