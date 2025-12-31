@@ -3,22 +3,35 @@ using System.Collections;
 
 public class TimeRewardManager : MonoBehaviour
 {
+    public static TimeRewardManager Instance;
+
     [SerializeField] PlayerCurrency currency;
+    [SerializeField] OfflineRewardPopup offlineRewardPopup;
+
+    public int lastOfflineReward { get; private set; }
 
     const float TOTAL_REQUIRED_ESSENCE = 894000f;
     const float WEIGHT_SUM = 1275f;
     const float TOTAL_HOURS = 720f;
     const float SEGMENT_TIME = TOTAL_HOURS / 50f;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    
+        GiveOfflineReward();
+    }
+
     private void OnEnable()
     {
         StopAllCoroutines();
         StartCoroutine(RewardLoop());
-    }
-
-    private void Start()
-    {
-        GiveOfflineReward();
     }
 
     IEnumerator RewardLoop()
@@ -38,11 +51,13 @@ public class TimeRewardManager : MonoBehaviour
         float essencePerHour = CalculateEssencePerHour(progressIndex);
         int reward = Mathf.Max(1, Mathf.FloorToInt(essencePerHour / 360f));
 
-        if (reward > 0) currency.AddEssence(reward);
+        currency.AddEssence(reward);
     }
 
     void GiveOfflineReward()
     {
+        lastOfflineReward = 0;
+
         long now = System.DateTimeOffset.UtcNow.ToUnixTimeSeconds();
         long last = PlayerData.Instance.lastLogoutTime;
 
@@ -56,9 +71,12 @@ public class TimeRewardManager : MonoBehaviour
 
         int reward = Mathf.FloorToInt(essencePerHour * (offlineSeconds / 3600f));
 
-        if (reward > 0) currency.AddEssence(reward);
+        if (reward <= 0) return;
 
-        PlayerData.Instance.lastLogoutTime = now;
+        lastOfflineReward = reward;
+        currency.AddEssence(reward);
+        offlineRewardPopup.Show(reward);
+
         PlayerData.Instance.SaveLastLogoutTime();
     }
 

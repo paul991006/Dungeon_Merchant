@@ -69,6 +69,7 @@ public class AuthManager : MonoBehaviour
             if (task.Result.Exists)
             {
                 PlayerData.Instance.LoadFromSnapshot(task.Result);
+                DungeonProgressManager.Instance.LoadFromSnapshot(task.Result);
             }
             else
             {

@@ -1,4 +1,7 @@
 using UnityEngine;
+using Firebase.Auth;
+using Firebase.Database;
+using System.Collections.Generic;
 
 public class DungeonProgressManager : MonoBehaviour
 {
@@ -24,7 +27,45 @@ public class DungeonProgressManager : MonoBehaviour
 
     public void SetCleared(int stage, int level)
     {
+        if (cleared[stage, level]) return;
+
         cleared[stage, level] = true;
+
+        SaveClearedToDatabase(stage, level);
+    }
+
+    void SaveClearedToDatabase(int stage, int level)
+    {
+        string uid = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+
+        var updates = new Dictionary<string, object>
+        {
+            { $"{stage}_{level}", true }
+        };
+
+        FirebaseDatabase.DefaultInstance.RootReference.Child("users").Child(uid).Child("dungeonProgress").Child("cleared").UpdateChildrenAsync(updates);
+    }
+
+    public void LoadFromSnapshot(DataSnapshot snapshot)
+    {
+        cleared = new bool[6, 11];
+        var clearedSnapshot = snapshot.Child("dungeonProgress").Child("cleared");
+
+        if (!clearedSnapshot.Exists) return;
+
+        foreach (var child in clearedSnapshot.Children)
+        {
+            string[] parts = child.Key.Split('_');
+            if (parts.Length != 2) continue;
+
+            int stage = int.Parse(parts[0]);
+            int level = int.Parse(parts[1]);
+
+            if (stage >= 1 && stage <= 5 && level >= 1 && level <= 10)
+            {
+                cleared[stage, level] = true;
+            }
+        }
     }
 
     public bool IsStageUnlocked(int stage)
