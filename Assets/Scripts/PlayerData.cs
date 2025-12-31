@@ -12,6 +12,9 @@ public class PlayerData : MonoBehaviour
     public int aspLevel;
     public int defLevel;
     public int essence;
+    public int maxClearedStage;
+    public int maxClearedLevel;
+    public long lastLogoutTime;
 
     void Awake()
     {
@@ -35,6 +38,15 @@ public class PlayerData : MonoBehaviour
         defLevel = GetInt(stats, "defLevel");
 
         essence = GetInt(snapshot.Child("currency"), "essence");
+
+        var dungeon = snapshot.Child("dungeonProgress");
+
+        maxClearedStage = GetInt(dungeon, "maxClearedStage");
+        maxClearedLevel = GetInt(dungeon, "maxClearedLevel");
+
+        lastLogoutTime = snapshot.Child("meta").Child("lastLogoutTime").Exists
+            ? long.Parse(snapshot.Child("meta").Child("lastLogoutTime").Value.ToString())
+            : GetNowUnixTime();
     }
 
     int GetInt(DataSnapshot snap, string key)
@@ -79,5 +91,52 @@ public class PlayerData : MonoBehaviour
         FirebaseDatabase.DefaultInstance.RootReference.Child("users").Child(uid).Child("currency").UpdateChildrenAsync(data);
     }
 
-}
+    public void UpdateDungeonProgress(int stage, int level)
+    {
+        //더 낮은 기록이면 무시
+        if (stage < maxClearedStage) return;
+        if (stage == maxClearedStage && level <= maxClearedLevel) return;
 
+        maxClearedStage = stage;
+        maxClearedLevel = level;
+
+        SaveDungeonProgressToDatabase();
+    }
+
+    void SaveDungeonProgressToDatabase()
+    {
+        string uid = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+
+        var data = new Dictionary<string, object>
+        {
+            { "maxClearedStage", maxClearedStage },
+            { "maxClearedLevel", maxClearedLevel }
+        };
+
+        FirebaseDatabase.DefaultInstance.RootReference.Child("users").Child(uid).Child("dungeonProgress").UpdateChildrenAsync(data);
+    }
+
+    public void SaveLastLogoutTime()
+    {
+        lastLogoutTime = GetNowUnixTime();
+
+        string uid = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+
+        FirebaseDatabase.DefaultInstance.RootReference.Child("users").Child(uid).Child("meta").Child("lastLogoutTime").SetValueAsync(lastLogoutTime);
+    }
+
+    long GetNowUnixTime()
+    {
+        return System.DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+    }
+
+    void OnApplicationQuit()
+    {
+        SaveLastLogoutTime();
+    }
+
+    void OnApplicationPause(bool pause)
+    {
+        if (pause) SaveLastLogoutTime();
+    }
+}

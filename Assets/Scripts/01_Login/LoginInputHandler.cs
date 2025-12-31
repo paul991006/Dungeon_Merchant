@@ -15,7 +15,7 @@ public class LoginInputHandler : MonoBehaviour
 
             if (current == emailInput.gameObject || current == passwordInput.gameObject)
             {
-                // 전체 선택 방지
+                //전체 선택 방지
                 ClearSelection();
 
                 TryLogin();
@@ -35,8 +35,7 @@ public class LoginInputHandler : MonoBehaviour
         string email = emailInput.text;
         string password = passwordInput.text;
 
-        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
-            return;
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password)) return;
 
         AuthManager.Instance.Login(email, password);
     }
