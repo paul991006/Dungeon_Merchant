@@ -11,6 +11,7 @@ public enum CombatMode
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public ItemDatabase itemDatabase;
 
     public CombatMode combatMode;
 

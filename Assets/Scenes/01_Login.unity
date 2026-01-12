@@ -671,6 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e38290bf2d51c44698d0ddad7569393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemDatabase: {fileID: 11400000, guid: 36c89c8188c733c4a9b616622b8626ba, type: 2}
   combatMode: 0
   userId: 
 --- !u!1 &443076571
