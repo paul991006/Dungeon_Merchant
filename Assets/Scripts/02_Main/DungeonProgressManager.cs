@@ -88,4 +88,27 @@ public class DungeonProgressManager : MonoBehaviour
 
         return cleared[stage, level - 1];
     }
+
+    public int GetCurrentProgressStage()
+    {
+        int currentStage = 1;
+
+        for (int stage = 1; stage <= 5; stage++)
+        {
+            bool anyCleared = false;
+
+            for (int level = 1; level <= 10; level++)
+            {
+                if (cleared[stage, level])
+                {
+                    anyCleared = true;
+                    currentStage = stage;
+                }
+            }
+
+            if (!anyCleared) break;
+        }
+
+        return currentStage;
+    }
 }

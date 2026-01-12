@@ -9,13 +9,22 @@ public class EquipmentManager : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else Destroy(gameObject);
     }
 
     public void EquipItem(ItemData data, ItemInstance instance)
     {
-        EquipmentSlotUI slot = slots.Find(s => s.slotType == data.itemType);
+        if (data == null || instance == null) return;
+
+        EquipmentSlotUI slot = slots.Find(s => s != null && s.slotType == data.itemType);
+        
         if (slot == null) return;
+
+        slot.Unequip();
 
         slot.Equip(data, instance);
         instance.isEquipped = true;

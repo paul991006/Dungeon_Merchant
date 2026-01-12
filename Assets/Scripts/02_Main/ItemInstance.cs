@@ -9,4 +9,8 @@ public class ItemInstance
     public int heal;
     public int attack;
     public int defense;
+    public int price;
+
+    public ItemGrade grade;
+    public ItemDurability durability;
 }

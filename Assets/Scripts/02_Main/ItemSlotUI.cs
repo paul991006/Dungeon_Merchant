@@ -12,7 +12,9 @@ public class ItemSlotUI : MonoBehaviour
     {
         this.data = data;
         this.instance = instance;
+
         icon.sprite = data.icon;
+        icon.enabled = true;
     }
 
     public void OnClick()

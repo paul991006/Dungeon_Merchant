@@ -6,16 +6,17 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
-    public Transform content;
-    public GameObject itemSlotPrefab;
-
     public List<ItemInstance> inventory = new List<ItemInstance>();
 
     const string SAVE_KEY = "INVENTORY_DATA";
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else Destroy(gameObject);
     }
 
@@ -25,34 +26,39 @@ public class InventoryManager : MonoBehaviour
         LoadInventory();
     }
 
-    public void AddItem(ItemData data)
+    public void AddItem(ItemData data, ItemGrade grade)
     {
+        ItemDurability dur = RollDurability();
+
         ItemInstance instance = new ItemInstance
         {
             itemId = data.itemId,
             enhance = 0,
             isEquipped = false,
+            grade = grade,
+            durability = dur,
 
-            attack = RollStat(data, data.Attack),
-            defense = RollStat(data, data.Defense)
+            attack = RollStat(data.baseAttack, grade, dur),
+            defense = RollStat(data.baseDefense, grade, dur),
+            hp = RollStat(data.baseHp, grade, dur),
+            heal = RollStat(data.baseHeal, grade, dur)
         };
 
         inventory.Add(instance);
         SaveInventory();
-        RefreshUI();
     }
 
-    public void RefreshUI()
+    ItemDurability RollDurability()
     {
-        foreach (Transform child in content) Destroy(child.gameObject);
+        int roll = Random.Range(0, 100);
 
-        foreach (ItemInstance instance in inventory)
-        {
-            ItemData data = GameManager.Instance.itemDatabase.GetItem(instance.itemId);
-
-            GameObject slot = Instantiate(itemSlotPrefab, content);
-            slot.GetComponent<ItemSlotUI>().SetItem(data, instance);
-        }
+        if (roll < 10) return ItemDurability.Trash;       // 10%
+        if (roll < 25) return ItemDurability.VeryBad;     // 15%
+        if (roll < 45) return ItemDurability.Bad;         // 20%
+        if (roll < 70) return ItemDurability.Normal;      // 25%
+        if (roll < 85) return ItemDurability.Good;        // 15%
+        if (roll < 95) return ItemDurability.VeryGood;    // 10%
+        return ItemDurability.Perfect;                    // 5%
     }
 
     void SaveInventory()
@@ -71,28 +77,82 @@ public class InventoryManager : MonoBehaviour
 
         string json = PlayerPrefs.GetString(SAVE_KEY);
         InventorySaveData saveData = JsonUtility.FromJson<InventorySaveData>(json);
-
         inventory = saveData.items;
-        RefreshUI();
     }
 
     float GetGradeMultiplier(ItemGrade grade)
     {
         switch (grade)
         {
-            case ItemGrade.Common: return 1.0f;
-            case ItemGrade.Rare: return 1.1f;
-            case ItemGrade.Epic: return 1.25f;
-            case ItemGrade.Unique: return 1.35f;
-            case ItemGrade.Legendary: return 1.5f;
+            case ItemGrade.Common: return 0.6f;
+            case ItemGrade.Rare: return 1.0f;
+            case ItemGrade.Epic: return 1.3f;
+            case ItemGrade.Unique: return 1.6f;
+            case ItemGrade.Legendary: return 2f;
             default: return 1f;
         }
     }
 
-    int RollStat(ItemData data, int baseValue)
+    public static float GetGradePriceMultiplier(ItemGrade grade)
     {
-        float gradeMul = GetGradeMultiplier(data.grade);
+        switch (grade)
+        {
+            case ItemGrade.Common: return 0.5f;   
+            case ItemGrade.Rare: return 1.0f;
+            case ItemGrade.Epic: return 1.5f;     
+            case ItemGrade.Unique: return 2.0f;  
+            case ItemGrade.Legendary: return 4.0f; 
+            default: return 1f;
+        }
+    }
+
+    float GetDurabilityMultiplier(ItemDurability durability)
+    {
+        switch (durability)
+        {
+            case ItemDurability.Trash: return 0.4f;
+            case ItemDurability.VeryBad: return 0.6f;
+            case ItemDurability.Bad: return 0.8f;
+            case ItemDurability.Normal: return 1.0f;
+            case ItemDurability.Good: return 1.2f;
+            case ItemDurability.VeryGood: return 1.4f;
+            case ItemDurability.Perfect: return 2f;
+            default: return 1f;
+        }
+    }
+
+    public static float GetDurabilityPriceMultiplier(ItemDurability durability)
+    {
+        switch (durability)
+        {
+            case ItemDurability.Trash: return 0.2f;
+            case ItemDurability.VeryBad: return 0.5f;
+            case ItemDurability.Bad: return 0.8f;
+            case ItemDurability.Normal: return 1.0f;
+            case ItemDurability.Good: return 1.5f;
+            case ItemDurability.VeryGood: return 2.0f;
+            case ItemDurability.Perfect: return 4.0f;
+            default: return 1f;
+        }
+    }
+
+    int RollStat(int baseValue, ItemGrade grade, ItemDurability durability)
+    {
+        float gradeMul = GetGradeMultiplier(grade);
+        float durMul = GetDurabilityMultiplier(durability);
         float rand = Random.Range(0.7f, 1.3f);
-        return Mathf.RoundToInt(baseValue * gradeMul * rand);
+
+        return Mathf.RoundToInt(baseValue * gradeMul * durMul * rand);
+    }
+
+    public static int RollPrice(ItemData data, ItemInstance instance) 
+    {
+        float price = data.basePrice;
+
+        price *= GetGradePriceMultiplier(instance.grade);
+        price *= GetDurabilityPriceMultiplier(instance.durability);
+        price *= Random.Range(0.9f, 1.1f);
+
+        return Mathf.Max(1, Mathf.RoundToInt(price));
     }
 }

@@ -29,12 +29,7 @@ public class DungeonPanelController : MonoBehaviour
 
     public void OnClickStage(int stage)
     {
-        if (!progress.IsStageUnlocked(stage))
-        {
-            Debug.Log("아직 잠긴 스테이지입니다.");
-            return;
-        }
-
+        if (!progress.IsStageUnlocked(stage)) return;
 
         currentStage = stage;
         levelPanel.SetActive(true);
@@ -63,7 +58,6 @@ public class DungeonPanelController : MonoBehaviour
             stageButtons[i].SetState(unlocked);
         }
     }
-
 
     void RefreshLevelButtons()
     {
