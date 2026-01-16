@@ -3,54 +3,51 @@ using UnityEngine.UI;
 
 public class ItemPanelUI : MonoBehaviour
 {
-    public static ItemPanelUI Instance { get; private set; }
+    public static ItemPanelUI Instance;
 
-    public Image itemImage;
-    public Text itemNameText;
-    public Text itemTypeText;
-    public Text statText;
     public GameObject panel;
+    public Button equipBtn;
+    public Button unequipBtn;
 
     private ItemData currentData;
     private ItemInstance currentInstance;
+    private ItemPanelMode currentMode;
+
+    public bool IsOpen => panel.activeSelf;
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-
+        Instance = this;
         panel.SetActive(false);
     }
 
-    public void Show(ItemData data, ItemInstance instance)
+    public void Show(ItemData data, ItemInstance instance, ItemPanelMode mode)
     {
         currentData = data;
         currentInstance = instance;
+        currentMode = mode;
 
+        equipBtn.gameObject.SetActive(mode == ItemPanelMode.Inventory);
+        unequipBtn.gameObject.SetActive(mode == ItemPanelMode.Equipment);
+        
         panel.SetActive(true);
-
-        itemImage.sprite = data.icon;
-        itemNameText.text = data.itemName;
-        itemTypeText.text = data.itemType.ToString();
-
-        statText.text = $"공격력 : {instance.attack}\n" + $"방어력 : {instance.defense}";
-    }
-
-    public void Hide()
-    {
-        panel.SetActive(false);
+        ItemTooltipUI.Instance.Hide();
     }
 
     public void OnClickEquip()
     {
-        if (currentData == null || currentInstance == null) return;
         EquipmentManager.Instance.EquipItem(currentData, currentInstance);
-        InventoryManager.Instance.RemoveItem(currentInstance);
-        InventoryUI.Instance?.RefreshUI();
-        Hide();
+        close();
+    }
+
+    public void OnClickUnequip() 
+    {
+        EquipmentManager.Instance.Unequip(currentData.itemType);
+        close();
+    }
+
+    void close()
+    {
+        panel.SetActive(false);
     }
 }

@@ -3,19 +3,6 @@ using Firebase.Database;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class EquippedItemData
-{
-    public ItemType itemType;
-    public ItemInstance itemInstance;
-}
-
-[System.Serializable]
-public class EquipmentSaveData
-{
-    public List<EquippedItemData> equippedItems;
-}
-
 public class PlayerData : MonoBehaviour
 {
     public static PlayerData Instance;

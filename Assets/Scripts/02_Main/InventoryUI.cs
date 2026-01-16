@@ -5,6 +5,7 @@ public class InventoryUI : MonoBehaviour
     public Transform content;
     public GameObject itemSlotPrefab;
 
+    public ItemPanelMode mode;
     public static InventoryUI Instance;
 
     void Awake()
@@ -27,7 +28,7 @@ public class InventoryUI : MonoBehaviour
             ItemData data = GameManager.Instance.itemDatabase.GetItem(instance.itemId);
 
             GameObject slot = Instantiate(itemSlotPrefab, content);
-            slot.GetComponent<ItemSlotUI>().SetItem(data, instance);
+            slot.GetComponent<ItemSlotUI>().SetItem(data, instance, mode);
         }
     }
 }

@@ -33,7 +33,6 @@ public class InventoryManager : MonoBehaviour
         ItemInstance instance = new ItemInstance
         {
             itemId = data.itemId,
-            enhance = 0,
             isEquipped = false,
             grade = grade,
             durability = dur,
@@ -50,13 +49,8 @@ public class InventoryManager : MonoBehaviour
 
     public void RemoveItem(ItemInstance instance)
     {
-        Debug.Log($"[RemoveItem] Try remove: {instance}");
-        Debug.Log($"Inventory Count Before: {inventory.Count}");
-
         inventory.Remove(instance);
         SaveInventory();
-
-        Debug.Log($"Inventory Count After: {inventory.Count}");
     }
 
     ItemDurability RollDurability()
@@ -165,5 +159,12 @@ public class InventoryManager : MonoBehaviour
         price *= Random.Range(0.9f, 1.1f);
 
         return Mathf.Max(1, Mathf.RoundToInt(price));
+    }
+
+    public void AddItemInstance(ItemInstance instance)
+    {
+        instance.isEquipped = false;
+        inventory.Add(instance);
+        SaveInventory();
     }
 }

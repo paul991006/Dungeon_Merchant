@@ -1,48 +1,49 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class EquipmentSlotUI : MonoBehaviour
+public class EquipmentSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
+    public Image icon;
     public ItemType slotType;
-    public Image iconImage;
-    public Button button;
 
     public ItemInstance CurrentItem;
     public ItemData CurrentData;
-
-    void Awake()
-    {
-        button.onClick.AddListener(OnClick);
-        SetEmpty();
-    }
 
     public void Equip(ItemData data, ItemInstance instance)
     {
         CurrentData = data;
         CurrentItem = instance;
 
-        iconImage.sprite = data.icon;
-        iconImage.enabled = true;
+        icon.sprite = data.icon;
+        icon.enabled = true;
     }
 
     public void Unequip()
     {
-        if (CurrentItem != null) CurrentItem.isEquipped = false;
-        SetEmpty();
-    }
-
-    void SetEmpty()
-    {
         CurrentData = null;
         CurrentItem = null;
-        iconImage.sprite = null;
-        iconImage.enabled = false;
+
+        icon.sprite = null;
+        icon.enabled = false;
     }
 
-    void OnClick()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        if (CurrentData == null) return;
+        if (CurrentItem == null) return;
 
-        ItemPanelUI.Instance.Show(CurrentData, CurrentItem);
+        ItemTooltipUI.Instance.Show(CurrentData, CurrentItem, eventData.position);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        ItemTooltipUI.Instance.Hide();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (CurrentItem == null) return;
+
+        ItemPanelUI.Instance.Show(CurrentData, CurrentItem, ItemPanelMode.Equipment);
     }
 }
