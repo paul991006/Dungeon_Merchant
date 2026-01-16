@@ -48,6 +48,17 @@ public class InventoryManager : MonoBehaviour
         SaveInventory();
     }
 
+    public void RemoveItem(ItemInstance instance)
+    {
+        Debug.Log($"[RemoveItem] Try remove: {instance}");
+        Debug.Log($"Inventory Count Before: {inventory.Count}");
+
+        inventory.Remove(instance);
+        SaveInventory();
+
+        Debug.Log($"Inventory Count After: {inventory.Count}");
+    }
+
     ItemDurability RollDurability()
     {
         int roll = Random.Range(0, 100);

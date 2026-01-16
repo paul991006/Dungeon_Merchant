@@ -957,6 +957,18 @@ MonoBehaviour:
   slotType: 6
   iconImage: {fileID: 111584892}
   button: {fileID: 111584891}
+  CurrentItem:
+    itemId: 0
+    enhance: 0
+    isEquipped: 0
+    hp: 0
+    heal: 0
+    attack: 0
+    defense: 0
+    price: 0
+    grade: 0
+    durability: 0
+  CurrentData: {fileID: 0}
 --- !u!1 &127296796
 GameObject:
   m_ObjectHideFlags: 0
@@ -3302,6 +3314,18 @@ MonoBehaviour:
   slotType: 8
   iconImage: {fileID: 464907151}
   button: {fileID: 464907150}
+  CurrentItem:
+    itemId: 0
+    enhance: 0
+    isEquipped: 0
+    hp: 0
+    heal: 0
+    attack: 0
+    defense: 0
+    price: 0
+    grade: 0
+    durability: 0
+  CurrentData: {fileID: 0}
 --- !u!1 &489300085
 GameObject:
   m_ObjectHideFlags: 0
@@ -5232,6 +5256,18 @@ MonoBehaviour:
   slotType: 5
   iconImage: {fileID: 722556049}
   button: {fileID: 722556048}
+  CurrentItem:
+    itemId: 0
+    enhance: 0
+    isEquipped: 0
+    hp: 0
+    heal: 0
+    attack: 0
+    defense: 0
+    price: 0
+    grade: 0
+    durability: 0
+  CurrentData: {fileID: 0}
 --- !u!1 &729898166
 GameObject:
   m_ObjectHideFlags: 0
@@ -6454,6 +6490,18 @@ MonoBehaviour:
   slotType: 3
   iconImage: {fileID: 825810011}
   button: {fileID: 825810010}
+  CurrentItem:
+    itemId: 0
+    enhance: 0
+    isEquipped: 0
+    hp: 0
+    heal: 0
+    attack: 0
+    defense: 0
+    price: 0
+    grade: 0
+    durability: 0
+  CurrentData: {fileID: 0}
 --- !u!1 &867745789
 GameObject:
   m_ObjectHideFlags: 0
@@ -6956,7 +7004,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 516814957}
         m_TargetAssemblyTypeName: ItemPanelUI, Assembly-CSharp
         m_MethodName: OnClickEquip
         m_Mode: 1
@@ -8537,6 +8585,18 @@ MonoBehaviour:
   slotType: 4
   iconImage: {fileID: 1217277382}
   button: {fileID: 1217277381}
+  CurrentItem:
+    itemId: 0
+    enhance: 0
+    isEquipped: 0
+    hp: 0
+    heal: 0
+    attack: 0
+    defense: 0
+    price: 0
+    grade: 0
+    durability: 0
+  CurrentData: {fileID: 0}
 --- !u!1 &1271806736
 GameObject:
   m_ObjectHideFlags: 0
@@ -9185,6 +9245,18 @@ MonoBehaviour:
   slotType: 2
   iconImage: {fileID: 1309750472}
   button: {fileID: 1309750471}
+  CurrentItem:
+    itemId: 0
+    enhance: 0
+    isEquipped: 0
+    hp: 0
+    heal: 0
+    attack: 0
+    defense: 0
+    price: 0
+    grade: 0
+    durability: 0
+  CurrentData: {fileID: 0}
 --- !u!1 &1322905553
 GameObject:
   m_ObjectHideFlags: 0
@@ -10212,6 +10284,18 @@ MonoBehaviour:
   slotType: 1
   iconImage: {fileID: 1438777096}
   button: {fileID: 1438777095}
+  CurrentItem:
+    itemId: 0
+    enhance: 0
+    isEquipped: 0
+    hp: 0
+    heal: 0
+    attack: 0
+    defense: 0
+    price: 0
+    grade: 0
+    durability: 0
+  CurrentData: {fileID: 0}
 --- !u!1 &1445767816
 GameObject:
   m_ObjectHideFlags: 0
@@ -10831,6 +10915,18 @@ MonoBehaviour:
   slotType: 7
   iconImage: {fileID: 1548047142}
   button: {fileID: 1548047141}
+  CurrentItem:
+    itemId: 0
+    enhance: 0
+    isEquipped: 0
+    hp: 0
+    heal: 0
+    attack: 0
+    defense: 0
+    price: 0
+    grade: 0
+    durability: 0
+  CurrentData: {fileID: 0}
 --- !u!1 &1561092115
 GameObject:
   m_ObjectHideFlags: 0
@@ -12632,6 +12728,18 @@ MonoBehaviour:
   slotType: 0
   iconImage: {fileID: 1813524558}
   button: {fileID: 1813524557}
+  CurrentItem:
+    itemId: 0
+    enhance: 0
+    isEquipped: 0
+    hp: 0
+    heal: 0
+    attack: 0
+    defense: 0
+    price: 0
+    grade: 0
+    durability: 0
+  CurrentData: {fileID: 0}
 --- !u!1 &1815821908
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,6 +22,8 @@ public class ItemPanelUI : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        panel.SetActive(false);
     }
 
     public void Show(ItemData data, ItemInstance instance)
@@ -40,11 +42,15 @@ public class ItemPanelUI : MonoBehaviour
 
     public void Hide()
     {
-        gameObject.SetActive(false);
+        panel.SetActive(false);
     }
 
     public void OnClickEquip()
     {
+        if (currentData == null || currentInstance == null) return;
         EquipmentManager.Instance.EquipItem(currentData, currentInstance);
+        InventoryManager.Instance.RemoveItem(currentInstance);
+        InventoryUI.Instance?.RefreshUI();
+        Hide();
     }
 }

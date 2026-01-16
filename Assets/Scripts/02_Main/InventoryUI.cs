@@ -5,12 +5,20 @@ public class InventoryUI : MonoBehaviour
     public Transform content;
     public GameObject itemSlotPrefab;
 
-    void OnEnable()
+    public static InventoryUI Instance;
+
+    void Awake()
     {
-        Refresh();
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
-    public void Refresh()
+    void OnEnable()
+    {
+        RefreshUI();
+    }
+
+    public void RefreshUI()
     {
         foreach (Transform child in content) Destroy(child.gameObject);
 

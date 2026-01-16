@@ -7,8 +7,8 @@ public class EquipmentSlotUI : MonoBehaviour
     public Image iconImage;
     public Button button;
 
-    private ItemInstance equippedInstance;
-    private ItemData equippedData;
+    public ItemInstance CurrentItem;
+    public ItemData CurrentData;
 
     void Awake()
     {
@@ -18,8 +18,8 @@ public class EquipmentSlotUI : MonoBehaviour
 
     public void Equip(ItemData data, ItemInstance instance)
     {
-        equippedData = data;
-        equippedInstance = instance;
+        CurrentData = data;
+        CurrentItem = instance;
 
         iconImage.sprite = data.icon;
         iconImage.enabled = true;
@@ -27,21 +27,22 @@ public class EquipmentSlotUI : MonoBehaviour
 
     public void Unequip()
     {
+        if (CurrentItem != null) CurrentItem.isEquipped = false;
         SetEmpty();
     }
 
     void SetEmpty()
     {
-        equippedData = null;
-        equippedInstance = null;
+        CurrentData = null;
+        CurrentItem = null;
         iconImage.sprite = null;
         iconImage.enabled = false;
     }
 
     void OnClick()
     {
-        if (equippedData == null) return;
+        if (CurrentData == null) return;
 
-        ItemPanelUI.Instance.Show(equippedData, equippedInstance);
+        ItemPanelUI.Instance.Show(CurrentData, CurrentItem);
     }
 }

@@ -3,9 +3,26 @@ using Firebase.Database;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class EquippedItemData
+{
+    public ItemType itemType;
+    public ItemInstance itemInstance;
+}
+
+[System.Serializable]
+public class EquipmentSaveData
+{
+    public List<EquippedItemData> equippedItems;
+}
+
 public class PlayerData : MonoBehaviour
 {
     public static PlayerData Instance;
+
+    public List<EquippedItemData> equippedItems = new();
+
+    const string EQUIP_SAVE_KEY = "EQUIPMENT_DATA";
 
     public int hpLevel;
     public int atkLevel;
@@ -18,14 +35,35 @@ public class PlayerData : MonoBehaviour
 
     void Awake()
     {
-        if (Instance != null)
+        if (Instance == null)
         {
-            Destroy(gameObject);
-            return;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            LoadEquipment();
         }
+        else Destroy(gameObject);
+    }
 
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+    public void SaveEquipment()
+    {
+        EquipmentSaveData save = new EquipmentSaveData
+        {
+            equippedItems = equippedItems
+        };
+
+        string json = JsonUtility.ToJson(save);
+        PlayerPrefs.SetString(EQUIP_SAVE_KEY, json);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadEquipment()
+    {
+        if (!PlayerPrefs.HasKey(EQUIP_SAVE_KEY)) return;
+
+        string json = PlayerPrefs.GetString(EQUIP_SAVE_KEY);
+        EquipmentSaveData save = JsonUtility.FromJson<EquipmentSaveData>(json);
+
+        equippedItems = save.equippedItems ?? new();
     }
 
     public void LoadFromSnapshot(DataSnapshot snapshot)

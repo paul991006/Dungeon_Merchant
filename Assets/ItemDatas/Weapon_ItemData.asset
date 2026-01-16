@@ -15,10 +15,9 @@ MonoBehaviour:
   itemId: 1
   itemName: 
   itemType: 0
-  grade: 0
-  durability: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 679b271b07d3c44f6b6a859d3e88cb4e, type: 3}
   baseHp: 0
   baseHeal: 0
   baseAttack: 10
   baseDefense: 0
+  basePrice: 0
