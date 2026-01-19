@@ -163,6 +163,7 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItemInstance(ItemInstance instance)
     {
+        if (inventory.Contains(instance)) return;
         instance.isEquipped = false;
         inventory.Add(instance);
         SaveInventory();

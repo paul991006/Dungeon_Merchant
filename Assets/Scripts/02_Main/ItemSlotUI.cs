@@ -24,6 +24,18 @@ public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         icon.sprite = data.icon;
         icon.enabled = true;
+        icon.color = Color.white;
+
+        if (mode == ItemPanelMode.Inventory)
+        {
+            // 인벤토리에서는 항상 표시
+            icon.enabled = true;
+        }
+        else if (mode == ItemPanelMode.Equipment)
+        {
+            // 장비창 전용 처리
+            icon.enabled = true;
+        }
     }
 
     public void Clear()
@@ -32,7 +44,7 @@ public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         instance = null;
 
         icon.sprite = null;
-        icon.enabled = false;
+        icon.color = Color.white;
     }
 
 
@@ -50,7 +62,9 @@ public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (mode == ItemPanelMode.Storage) return;
         if (data == null || instance == null) return;
+        if (ItemPanelUI.Instance == null) return;
 
         ItemPanelUI.Instance.Show(data, instance, mode);
     }

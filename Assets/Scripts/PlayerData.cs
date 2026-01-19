@@ -19,6 +19,8 @@ public class PlayerData : MonoBehaviour
     public int maxClearedStage;
     public int maxClearedLevel;
     public long lastLogoutTime;
+    public bool offlineRewardChecked;
+    public bool isLoaded {  get; private set; }
 
     void Awake()
     {
@@ -39,15 +41,15 @@ public class PlayerData : MonoBehaviour
         };
 
         string json = JsonUtility.ToJson(save);
-        PlayerPrefs.SetString(EQUIP_SAVE_KEY, json);
+        PlayerPrefs.SetString("EQUIPMENT_DATA", json);
         PlayerPrefs.Save();
     }
 
     public void LoadEquipment()
     {
-        if (!PlayerPrefs.HasKey(EQUIP_SAVE_KEY)) return;
+        if (!PlayerPrefs.HasKey("EQUIPMENT_DATA")) return;
 
-        string json = PlayerPrefs.GetString(EQUIP_SAVE_KEY);
+        string json = PlayerPrefs.GetString("EQUIPMENT_DATA");
         EquipmentSaveData save = JsonUtility.FromJson<EquipmentSaveData>(json);
 
         equippedItems = save.equippedItems ?? new();
@@ -72,6 +74,8 @@ public class PlayerData : MonoBehaviour
         lastLogoutTime = snapshot.Child("meta").Child("lastLogoutTime").Exists
             ? long.Parse(snapshot.Child("meta").Child("lastLogoutTime").Value.ToString())
             : GetNowUnixTime();
+
+        isLoaded = true;
     }
 
     int GetInt(DataSnapshot snap, string key)
@@ -147,12 +151,21 @@ public class PlayerData : MonoBehaviour
 
         string uid = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
 
-        FirebaseDatabase.DefaultInstance.RootReference.Child("users").Child(uid).Child("meta").Child("lastLogoutTime").SetValueAsync(lastLogoutTime);
+        FirebaseDatabase.DefaultInstance.RootReference.Child("users").Child(uid).Child("meta")
+            .Child("lastLogoutTime").SetValueAsync(lastLogoutTime);
     }
 
     long GetNowUnixTime()
     {
         return System.DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+    }
+
+    public void SaveOfflineRewardChecked()
+    {
+        string uid = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+
+        FirebaseDatabase.DefaultInstance.RootReference.Child("users").Child(uid).Child("meta")
+            .Child("offlineRewardChecked").SetValueAsync(true);
     }
 
     void OnApplicationQuit()

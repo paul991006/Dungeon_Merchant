@@ -4,47 +4,43 @@ using UnityEngine.UI;
 
 public class EquipmentSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    public Image icon;
     public ItemType slotType;
+    public Transform itemRoot;
+    public GameObject itemSlotPref;
 
+    public ItemSlotUI currentSlot;
     public ItemInstance CurrentItem;
     public ItemData CurrentData;
 
-    void Awake()
-    {
-        SetEmpty();
-    }
-
     public void Equip(ItemData data, ItemInstance instance)
     {
-        if (data == null || instance == null) return;
+        Clear();
 
-        CurrentData = data;
         CurrentItem = instance;
+        CurrentData = data;
 
-        icon.sprite = data.icon;
-        icon.color = Color.white;
-        icon.raycastTarget = true;
+        GameObject go = Instantiate(itemSlotPref, itemRoot);
+        currentSlot = go.GetComponent<ItemSlotUI>();
+        currentSlot.SetItem(data, instance, ItemPanelMode.Equipment);
     }
 
     public void Unequip()
     {
-        SetEmpty();
+        Clear();
     }
 
-    void SetEmpty()
+    public void Clear()
     {
-        CurrentData = null;
-        CurrentItem = null;
+        if (currentSlot != null) Destroy(currentSlot.gameObject);
 
-        icon.sprite = null;
-        icon.color = new Color(1, 1, 1, 0); //≈ı∏Ì
-        icon.raycastTarget = false;
+        currentSlot = null;
+        CurrentItem = null;
+        CurrentData = null;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (CurrentItem == null || CurrentData == null) return;
+        if (CurrentItem == null) return;
 
         ItemTooltipUI.Instance.Show(CurrentData, CurrentItem, eventData.position);
     }
@@ -56,7 +52,7 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (CurrentItem == null || CurrentData == null) return;
+        if (CurrentItem == null) return;
 
         ItemPanelUI.Instance.Show(CurrentData, CurrentItem, ItemPanelMode.Equipment);
     }

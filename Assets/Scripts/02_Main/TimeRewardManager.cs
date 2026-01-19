@@ -24,8 +24,6 @@ public class TimeRewardManager : MonoBehaviour
         }
 
         Instance = this;
-    
-        GiveOfflineReward();
     }
 
     private void OnEnable()
@@ -41,6 +39,19 @@ public class TimeRewardManager : MonoBehaviour
             yield return new WaitForSeconds(10f);
             GiveReward();
         }
+    }
+
+    private void Start()
+    {
+        StartCoroutine(WaitAndGiveOfflineReward());
+    }
+
+    IEnumerator WaitAndGiveOfflineReward()
+    {
+        yield return new WaitUntil(() => PlayerData.Instance != null);
+        yield return new WaitUntil(() => PlayerData.Instance.isLoaded);
+
+        TryGiveOfflineReward();
     }
 
     void GiveReward()
@@ -92,5 +103,15 @@ public class TimeRewardManager : MonoBehaviour
         int level = Mathf.Max(1, PlayerData.Instance.maxClearedLevel);
 
         return (stage - 1) * 10 + level;
+    }
+
+    public void TryGiveOfflineReward()
+    {
+        if (PlayerData.Instance.offlineRewardChecked) return;
+
+        GiveOfflineReward();
+
+        PlayerData.Instance.offlineRewardChecked = true;
+        PlayerData.Instance.SaveOfflineRewardChecked();
     }
 }

@@ -8,20 +8,20 @@ public class EquipmentManager : MonoBehaviour
     public List<EquipmentSlotUI> slots;
 
     private Dictionary<ItemType, ItemInstance> equippedItems = new();
-    const string SAVE_KEY = "EQUIPMENT_DATA";
 
     void Awake()
     {
         if (Instance == null) 
         {
             Instance = this; 
+            DontDestroyOnLoad(gameObject);
         } 
         else Destroy(gameObject);
     }
 
-    private void Start()
+    void Start()
     {
-        Load();
+        EquipmentManager.Instance.InitFromPlayerData();
     }
 
     public void EquipItem(ItemData data, ItemInstance instance)
@@ -38,12 +38,19 @@ public class EquipmentManager : MonoBehaviour
         equippedItems[type] = instance;
         instance.isEquipped = true;
 
-        EquipmentSlotUI slot = slots.Find(s => s.slotType == type);
+        PlayerData.Instance.equippedItems.RemoveAll(e => e.itemType == type);
+        PlayerData.Instance.equippedItems.Add(new EquippedItemData
+        {
+            itemType = type,
+            item = instance
+        });
+
+        PlayerData.Instance.SaveEquipment();
+
+        EquipmentSlotUI slot = GetSlot(type);
         slot?.Equip(data, instance);
 
         InventoryUI.Instance?.RefreshUI();
-
-        Save();
     }
 
     public void Unequip(ItemType type)
@@ -53,51 +60,40 @@ public class EquipmentManager : MonoBehaviour
         ItemInstance instance = equippedItems[type];
         instance.isEquipped = false;
 
+        // 인벤토리로 복귀 (같은 인스턴스!)
         InventoryManager.Instance.AddItemInstance(instance);
-
-        EquipmentSlotUI slot = slots.Find(s => s.slotType == type);
-        slot?.Unequip();
 
         equippedItems.Remove(type);
 
+        // PlayerData에서도 제거
+        PlayerData.Instance.equippedItems.RemoveAll(e => e.itemType == type);
+        PlayerData.Instance.SaveEquipment();
+
+        // UI
+        EquipmentSlotUI slot = GetSlot(type);
+        slot?.Clear();
+
         InventoryUI.Instance?.RefreshUI();
-
-        Save();
-    }
-    
-    void Save()
-    {
-        EquipmentSaveData save = new();
-
-        foreach (var pair in equippedItems) 
-        {
-            save.equippedItems.Add(new EquippedItemData
-            {
-                itemType = pair.Key,
-                item = pair.Value
-            });
-        }
-
-        PlayerPrefs.SetString(SAVE_KEY, JsonUtility.ToJson(save));
-        PlayerPrefs.Save();
     }
 
-    void Load()
+    EquipmentSlotUI GetSlot(ItemType type)
     {
-        if (!PlayerPrefs.HasKey(SAVE_KEY)) return;
+        return slots.Find(s => s.slotType == type);
+    }
 
-        EquipmentSaveData save = JsonUtility.FromJson<EquipmentSaveData>(PlayerPrefs.GetString(SAVE_KEY));
+    public void InitFromPlayerData()
+    {
+        equippedItems.Clear();
 
-        foreach (var e in save.equippedItems)
+        foreach (var e in PlayerData.Instance.equippedItems)
         {
             equippedItems[e.itemType] = e.item;
-            e.item.isEquipped= true;
+            e.item.isEquipped = true;
 
-            ItemData data = GameManager.Instance.itemDatabase.GetItem(e.item.itemId);
+            ItemData data =
+                GameManager.Instance.itemDatabase.GetItem(e.item.itemId);
 
-            if (data == null) continue;
-
-            EquipmentSlotUI slot = slots.Find(s => s.slotType == e.itemType);
+            EquipmentSlotUI slot = GetSlot(e.itemType);
             slot?.Equip(data, e.item);
         }
     }

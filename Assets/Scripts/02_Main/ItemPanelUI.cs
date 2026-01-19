@@ -24,6 +24,12 @@ public class ItemPanelUI : MonoBehaviour
 
     public void Show(ItemData data, ItemInstance instance, ItemPanelMode mode)
     {
+        if (data == null || instance == null)
+        {
+            close();
+            return;
+        }
+
         currentData = data;
         currentInstance = instance;
         currentMode = mode;
