@@ -41,6 +41,8 @@ public class EquipmentManager : MonoBehaviour
         EquipmentSlotUI slot = slots.Find(s => s.slotType == type);
         slot?.Equip(data, instance);
 
+        InventoryUI.Instance?.RefreshUI();
+
         Save();
     }
 
@@ -57,6 +59,9 @@ public class EquipmentManager : MonoBehaviour
         slot?.Unequip();
 
         equippedItems.Remove(type);
+
+        InventoryUI.Instance?.RefreshUI();
+
         Save();
     }
     
@@ -89,7 +94,10 @@ public class EquipmentManager : MonoBehaviour
             e.item.isEquipped= true;
 
             ItemData data = GameManager.Instance.itemDatabase.GetItem(e.item.itemId);
-            EquipmentSlotUI slot = slots.Find(s => s.slotType==e.itemType);
+
+            if (data == null) continue;
+
+            EquipmentSlotUI slot = slots.Find(s => s.slotType == e.itemType);
             slot?.Equip(data, e.item);
         }
     }

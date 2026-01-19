@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pants_ItemData
   m_EditorClassIdentifier: 
   itemId: 4
-  itemName: 
+  itemName: "\uAC01\uBC18"
   itemType: 3
   icon: {fileID: 21300000, guid: 7d4f9cff490ea9e4e8de620ec2fadcb5, type: 3}
   baseHp: 5

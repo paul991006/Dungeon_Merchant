@@ -10,27 +10,41 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public ItemInstance CurrentItem;
     public ItemData CurrentData;
 
+    void Awake()
+    {
+        SetEmpty();
+    }
+
     public void Equip(ItemData data, ItemInstance instance)
     {
+        if (data == null || instance == null) return;
+
         CurrentData = data;
         CurrentItem = instance;
 
         icon.sprite = data.icon;
-        icon.enabled = true;
+        icon.color = Color.white;
+        icon.raycastTarget = true;
     }
 
     public void Unequip()
+    {
+        SetEmpty();
+    }
+
+    void SetEmpty()
     {
         CurrentData = null;
         CurrentItem = null;
 
         icon.sprite = null;
-        icon.enabled = false;
+        icon.color = new Color(1, 1, 1, 0); //≈ı∏Ì
+        icon.raycastTarget = false;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (CurrentItem == null) return;
+        if (CurrentItem == null || CurrentData == null) return;
 
         ItemTooltipUI.Instance.Show(CurrentData, CurrentItem, eventData.position);
     }
@@ -42,7 +56,7 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (CurrentItem == null) return;
+        if (CurrentItem == null || CurrentData == null) return;
 
         ItemPanelUI.Instance.Show(CurrentData, CurrentItem, ItemPanelMode.Equipment);
     }

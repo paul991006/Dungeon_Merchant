@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon_ItemData
   m_EditorClassIdentifier: 
   itemId: 1
-  itemName: 
+  itemName: "\uCCA0\uAC80"
   itemType: 0
   icon: {fileID: 21300000, guid: 679b271b07d3c44f6b6a859d3e88cb4e, type: 3}
   baseHp: 0

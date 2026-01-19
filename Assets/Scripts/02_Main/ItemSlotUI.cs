@@ -12,6 +12,12 @@ public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void SetItem(ItemData data, ItemInstance instance, ItemPanelMode mode)
     {
+        if (data == null || instance == null)
+        {
+            Clear();
+            return;
+        }
+
         this.data = data;
         this.instance = instance;
         this.mode = mode;
@@ -20,9 +26,19 @@ public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         icon.enabled = true;
     }
 
+    public void Clear()
+    {
+        data = null;
+        instance = null;
+
+        icon.sprite = null;
+        icon.enabled = false;
+    }
+
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (ItemTooltipUI.Instance == null) return;
+        if (data == null || instance == null) return;
         ItemTooltipUI.Instance.Show(data, instance, eventData.position);
     }
 
@@ -34,6 +50,8 @@ public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (data == null || instance == null) return;
+
         ItemPanelUI.Instance.Show(data, instance, mode);
     }
 }

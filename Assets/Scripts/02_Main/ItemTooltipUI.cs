@@ -29,7 +29,7 @@ public class ItemTooltipUI : MonoBehaviour
 
     public void Show(ItemData data, ItemInstance instance, Vector2 position)
     {
-        if (ItemPanelUI.Instance != null && ItemPanelUI.Instance.IsOpen) return;
+        if (data == null || instance == null) return;
 
         icon.sprite = data.icon;
         nameText.text = data.itemName;

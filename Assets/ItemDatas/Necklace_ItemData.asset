@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Necklace_ItemData
   m_EditorClassIdentifier: 
   itemId: 7
-  itemName: 
+  itemName: "\uBAA9\uAC78\uC774"
   itemType: 6
   icon: {fileID: 21300000, guid: 982891f0e235d3a48a1f922d29e65e2c, type: 3}
   baseHp: 0
