@@ -15,7 +15,7 @@ MonoBehaviour:
   itemId: 1
   itemName: "\uCCA0\uAC80"
   itemType: 0
-  icon: {fileID: 21300000, guid: 679b271b07d3c44f6b6a859d3e88cb4e, type: 3}
+  icon: {fileID: 1089377228928510722, guid: 2f84c54fe6ae8f5459fa9b8b9d75f090, type: 3}
   baseHp: 0
   baseHeal: 0
   baseAttack: 10

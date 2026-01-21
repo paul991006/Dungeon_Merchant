@@ -24,4 +24,19 @@ public class ItemInstance
 
         return text;
     }
+
+    public string GetDurabilityText()
+    {
+        switch (durability)
+        {
+            case ItemDurability.Trash: return "<color=#777777>쓰레기</color>";
+            case ItemDurability.VeryBad: return "<color=#888888>매우 나쁨</color>";
+            case ItemDurability.Bad: return "<color=#AAAAAA>나쁨</color>";
+            case ItemDurability.Normal: return "<color=#FFFFFF>보통</color>";
+            case ItemDurability.Good: return "<color=#4CAF50>좋음</color>";
+            case ItemDurability.VeryGood: return "<color=#2196F3>매우 좋음</color>";
+            case ItemDurability.Perfect: return "<color=#FFD700>완벽함</color>";
+            default: return durability.ToString();
+        }
+    }
 }

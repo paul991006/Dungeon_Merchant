@@ -26,6 +26,8 @@ public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         icon.enabled = true;
         icon.color = Color.white;
 
+        icon.preserveAspect = true;
+
         if (mode == ItemPanelMode.Inventory)
         {
             // 인벤토리에서는 항상 표시

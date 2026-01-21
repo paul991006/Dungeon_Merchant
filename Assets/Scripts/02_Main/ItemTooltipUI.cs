@@ -11,6 +11,8 @@ public class ItemTooltipUI : MonoBehaviour
     public Text nameText;
     public Text gradeText;
     public Text statText;
+    public Text priceText;
+    public Text durabilityText;
 
     RectTransform rect;
 
@@ -32,9 +34,13 @@ public class ItemTooltipUI : MonoBehaviour
         if (data == null || instance == null) return;
 
         icon.sprite = data.icon;
+        icon.preserveAspect = true;
+
         nameText.text = data.itemName;
         gradeText.text = instance.grade.ToString();
         statText.text = instance.GetStatDescription();
+        priceText.text = instance.price.ToString();
+        durabilityText.text = instance.GetDurabilityText();
 
         panel.SetActive(true);
         SetPosition(position);
