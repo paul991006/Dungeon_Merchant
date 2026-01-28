@@ -26,11 +26,26 @@ public class TestButton : MonoBehaviour
     {
         if (dropItems == null || dropItems.Length == 0) return;
 
-        ItemData dropItem = dropItems[Random.Range(0, dropItems.Length)];
+        int rewardCount = GetRewardCount(stage, level);
 
-        ItemGrade grade = RollGradeByDungeon(stage, level);
+        for (int i = 0; i < rewardCount; i++)
+        {
+            ItemData dropItem = dropItems[Random.Range(0, dropItems.Length)];
 
-        InventoryManager.Instance.AddItem(dropItem, grade);
+            ItemGrade grade = RollGradeByDungeon(stage, level);
+
+            InventoryManager.Instance.AddItem(dropItem, grade);
+        }
+
+    }
+
+    int GetRewardCount(int stage, int level)
+    {
+        int difficulty = stage * 10 + level;
+
+        if (difficulty <= 15) return Random.Range(1, 3);
+        else if (difficulty <= 30) return Random.Range(2, 5);
+        else return Random.Range(3, 7);
     }
 
     ItemGrade RollGradeByDungeon(int stage, int level)

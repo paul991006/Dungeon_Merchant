@@ -20,4 +20,4 @@ MonoBehaviour:
   baseHeal: 0
   baseAttack: 10
   baseDefense: 0
-  basePrice: 0
+  basePrice: 1200
