@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 
 public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
+    public Image background;
     public Image icon;
 
     private ItemData data;
@@ -28,14 +29,16 @@ public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         icon.preserveAspect = true;
 
+        SetGradeColor(instance.grade);
+
         if (mode == ItemPanelMode.Inventory)
         {
-            // 인벤토리에서는 항상 표시
+            //인벤토리에서는 항상 표시
             icon.enabled = true;
         }
         else if (mode == ItemPanelMode.Equipment)
         {
-            // 장비창 전용 처리
+            //장비창 전용 처리
             icon.enabled = true;
         }
     }
@@ -47,8 +50,14 @@ public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         icon.sprite = null;
         icon.color = Color.white;
+
+        background.color = Color.white;
     }
 
+    void SetGradeColor(ItemGrade grade)
+    {
+        background.color = ItemGradeColorUtil.GetColor(grade);
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {

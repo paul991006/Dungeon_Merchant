@@ -9,13 +9,12 @@ public class PlayerData : MonoBehaviour
 
     public List<EquippedItemData> equippedItems = new();
 
-    const string EQUIP_SAVE_KEY = "EQUIPMENT_DATA";
-
     public int hpLevel;
     public int atkLevel;
     public int aspLevel;
     public int defLevel;
     public int essence;
+    public int gold;
     public int maxClearedStage;
     public int maxClearedLevel;
     public long lastLogoutTime;
@@ -65,6 +64,7 @@ public class PlayerData : MonoBehaviour
         defLevel = GetInt(stats, "defLevel");
 
         essence = GetInt(snapshot.Child("currency"), "essence");
+        gold = GetInt(snapshot.Child("currency"), "gold");
 
         var dungeon = snapshot.Child("dungeonProgress");
 
@@ -114,7 +114,8 @@ public class PlayerData : MonoBehaviour
 
         var data = new Dictionary<string, object>
         {
-            { "essence", essence }
+            { "essence", essence },
+            { "gold", gold }
         };
 
         FirebaseDatabase.DefaultInstance.RootReference.Child("users").Child(uid).Child("currency").UpdateChildrenAsync(data);

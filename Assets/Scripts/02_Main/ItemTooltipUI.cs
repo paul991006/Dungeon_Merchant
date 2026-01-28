@@ -9,10 +9,7 @@ public class ItemTooltipUI : MonoBehaviour
     public GameObject panel;
     public Image icon;
     public Text nameText;
-    public Text gradeText;
     public Text statText;
-    public Text priceText;
-    public Text durabilityText;
 
     RectTransform rect;
 
@@ -33,14 +30,17 @@ public class ItemTooltipUI : MonoBehaviour
     {
         if (data == null || instance == null) return;
 
+        Color gradeColor = ItemGradeColorUtil.GetColor(instance.grade);
+
         icon.sprite = data.icon;
         icon.preserveAspect = true;
 
-        nameText.text = data.itemName;
-        gradeText.text = instance.grade.ToString();
-        statText.text = instance.GetStatDescription();
-        priceText.text = instance.price.ToString();
-        durabilityText.text = instance.GetDurabilityText();
+        nameText.text = $"{data.itemName}\n({instance.grade})";
+        nameText.color = gradeColor;
+        statText.text = 
+            instance.GetStatDescription() +
+            $"\n내구도 : {instance.GetDurabilityText()}" +
+            $"\n가격 : {instance.price}G";
 
         panel.SetActive(true);
         SetPosition(position);

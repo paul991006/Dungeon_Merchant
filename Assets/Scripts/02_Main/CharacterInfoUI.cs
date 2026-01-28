@@ -81,7 +81,7 @@ public class CharacterInfoUI : MonoBehaviour
             lvl => upgradeManager.GetUpgradeCost(lvl)
         );
 
-        essenceText.text = $"{currency.essence}";
+        essenceText.text = $"골드 : {currency.gold}G    몬스터 정수 : {currency.essence}";
     }
 
     void UpdateStatUI(

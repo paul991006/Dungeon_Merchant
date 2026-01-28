@@ -44,6 +44,7 @@ public class InventoryManager : MonoBehaviour
         };
 
         inventory.Add(instance);
+        instance.price = CalculatePrice(data, instance);
         SaveInventory();
     }
 
@@ -150,14 +151,13 @@ public class InventoryManager : MonoBehaviour
         return Mathf.RoundToInt(baseValue * gradeMul * durMul * rand);
     }
 
-    public static int RollPrice(ItemData data, ItemInstance instance) 
+    public static int CalculatePrice (ItemData data, ItemInstance instance)
     {
+        if (data == null || instance == null) return 0;
         float price = data.basePrice;
-
         price *= GetGradePriceMultiplier(instance.grade);
         price *= GetDurabilityPriceMultiplier(instance.durability);
-        price *= Random.Range(0.9f, 1.1f);
-
+        price *= Random.Range(0.7f, 1.3f);
         return Mathf.Max(1, Mathf.RoundToInt(price));
     }
 

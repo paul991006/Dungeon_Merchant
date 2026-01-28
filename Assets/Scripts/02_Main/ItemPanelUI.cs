@@ -7,8 +7,6 @@ public class ItemPanelUI : MonoBehaviour
 
     public GameObject panel;
     public Text msg;
-    public Text price_Txt;
-    public Text durability_Txt;
     public Button equipBtn;
     public Button unequipBtn;
 
