@@ -74,6 +74,7 @@ public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerClick(PointerEventData eventData)
     {
         if (data == null || instance == null) return;
+        if (ItemTooltipUI.Instance != null) ItemTooltipUI.Instance.Hide();
         if (mode == ItemPanelMode.Storage)
         {
             if (HalfShopPanelUI.Instance != null)

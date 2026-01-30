@@ -42,7 +42,7 @@ public class ItemTooltipUI : MonoBehaviour
         statText.text = 
             instance.GetStatDescription() +
             $"\n내구도 : {instance.GetDurabilityText()}" +
-            $"\n가격 : {instance.price}G";
+            $"\n가격 : {instance.basePrice}G";
 
         panel.SetActive(true);
         SetPosition(position);

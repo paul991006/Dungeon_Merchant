@@ -87,9 +87,9 @@ GameObject:
   - component: {fileID: 5167632481318776712}
   - component: {fileID: 8583504530011951042}
   - component: {fileID: 8713098081478803184}
-  - component: {fileID: 391026443628942474}
+  - component: {fileID: 8223135898786044406}
   m_Layer: 5
-  m_Name: ItemSlot
+  m_Name: RewardItemSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5167632481318776712
 CanvasRenderer:
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &391026443628942474
+--- !u!114 &8223135898786044406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1591372756595211623}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8365bf94ad5dabd46a85d9036ceaea10, type: 3}
+  m_Script: {fileID: 11500000, guid: 03a0c1523175d3b4ea9038876aaccd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 8904032095357684931}

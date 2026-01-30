@@ -13,6 +13,8 @@ public class ItemInstance
     public ItemGrade grade;
     public ItemDurability durability;
 
+    public int basePrice;
+
     public string GetStatDescription()
     {
         string text = "";

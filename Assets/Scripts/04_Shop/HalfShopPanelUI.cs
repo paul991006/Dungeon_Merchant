@@ -31,21 +31,19 @@ public class HalfShopPanelUI : MonoBehaviour
 
         panel.SetActive(true);
 
-        int halfPrice = Mathf.Max(1, InventoryManager.CalculatePrice(data, instance) / 2);
-        msg.text = $"이 아이템을 {halfPrice}G에 판매하시겠습니까?";
+        int halfPrice = Mathf.Max(1, instance.basePrice / 2);
+        msg.text = $"이 아이템을 반값 {halfPrice}G에 판매하시겠습니까?";
 
         sellBtn.onClick.RemoveAllListeners();
-        sellBtn.onClick.AddListener(() =>
-        {
-            SellItem();
-        });
+        sellBtn.onClick.AddListener(SellItem);
     }
 
     void SellItem()
     {
-        int price = Mathf.Max(1, InventoryManager.CalculatePrice(currentData, currentInstance) / 2);
+        int price = Mathf.Max(1, currentInstance.basePrice / 2);
         PlayerData.Instance.gold += price;
         InventoryManager.Instance.RemoveItem(currentInstance);
+        InventoryUI.Instance.RefreshUI();
         panel.SetActive(false);
     }
 }

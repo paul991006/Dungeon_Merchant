@@ -42,9 +42,9 @@ public class InventoryManager : MonoBehaviour
             hp = RollStat(data.baseHp, grade, dur),
             heal = RollStat(data.baseHeal, grade, dur)
         };
+        instance.basePrice = CalculatePrice(data, instance);
 
         inventory.Add(instance);
-        instance.price = CalculatePrice(data, instance);
         SaveInventory();
     }
 
