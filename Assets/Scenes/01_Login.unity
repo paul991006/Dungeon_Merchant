@@ -230,7 +230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 400, y: -200}
+  m_AnchoredPosition: {x: 280, y: -200}
   m_SizeDelta: {x: 100, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &200351432
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1679,14 +1679,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ec7f3d34fa70d4e86028b2637a4283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equippedItems: []
   hpLevel: 0
   atkLevel: 0
   aspLevel: 0
   defLevel: 0
   essence: 0
+  gold: 0
   maxClearedStage: 0
   maxClearedLevel: 0
   lastLogoutTime: 0
+  offlineRewardChecked: 0
 --- !u!4 &1079886528
 Transform:
   m_ObjectHideFlags: 0
