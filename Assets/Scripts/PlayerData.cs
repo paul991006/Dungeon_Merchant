@@ -32,6 +32,20 @@ public class PlayerData : MonoBehaviour
         else Destroy(gameObject);
     }
 
+    public void AddGold(int amount)
+    {
+        gold += amount;
+        SaveCurrencyToDatabase();
+    }
+
+    public bool UseGold(int amount)
+    {
+        if (gold < amount) return false;
+        gold -= amount;
+        SaveCurrencyToDatabase();
+        return true;
+    }
+
     public void SaveEquipment()
     {
         EquipmentSaveData save = new EquipmentSaveData

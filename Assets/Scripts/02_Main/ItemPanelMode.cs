@@ -2,5 +2,6 @@ public enum ItemPanelMode
 {
     Inventory,
     Equipment,
-    Storage
+    Storage,
+    Smith
 }

@@ -62,12 +62,14 @@ public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (data == null || instance == null) return;
+        if (mode == ItemPanelMode.Smith) return;
         ItemTooltipUI.Instance.Show(data, instance, eventData.position);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         if (ItemTooltipUI.Instance == null) return;
+        if (mode == ItemPanelMode.Smith) return;
         ItemTooltipUI.Instance.Hide();
     }
 
@@ -83,6 +85,12 @@ public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 return;
             }
         }
+        if (mode == ItemPanelMode.Smith)
+        {
+            ItemTooltipUI.Instance.Show(data, instance, eventData.position);
+            return;
+        }
+
         if (ItemPanelUI.Instance == null) return;
 
         ItemPanelUI.Instance.Show(data, instance, mode);

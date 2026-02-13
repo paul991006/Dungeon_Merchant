@@ -29,21 +29,7 @@ public class InventoryManager : MonoBehaviour
     public void AddItem(ItemData data, ItemGrade grade)
     {
         ItemDurability dur = RollDurability();
-
-        ItemInstance instance = new ItemInstance
-        {
-            itemId = data.itemId,
-            isEquipped = false,
-            grade = grade,
-            durability = dur,
-
-            attack = RollStat(data.baseAttack, grade, dur),
-            defense = RollStat(data.baseDefense, grade, dur),
-            hp = RollStat(data.baseHp, grade, dur),
-            heal = RollStat(data.baseHeal, grade, dur)
-        };
-        instance.basePrice = CalculatePrice(data, instance);
-
+        ItemInstance instance = new ItemInstance(data, grade, dur);
         inventory.Add(instance);
         SaveInventory();
     }
@@ -52,6 +38,18 @@ public class InventoryManager : MonoBehaviour
     {
         inventory.Remove(instance);
         SaveInventory();
+    }
+
+    public static int CalculateFinalPrice(ItemInstance item, float shopMultiplier)
+    {
+        if (item == null) return 0;
+
+        float price = item.originPrice;
+        price *= GetGradePriceMultiplier(item.grade);
+        price *= GetDurabilityPriceMultiplier(item.durability);
+        price *= shopMultiplier;
+
+        return Mathf.Max(1, Mathf.RoundToInt(price));
     }
 
     ItemDurability RollDurability()
@@ -67,7 +65,7 @@ public class InventoryManager : MonoBehaviour
         return ItemDurability.Perfect;                    // 5%
     }
 
-    void SaveInventory()
+    public void SaveInventory()
     {
         InventorySaveData saveData = new InventorySaveData();
         saveData.items = inventory;
@@ -77,7 +75,7 @@ public class InventoryManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    void LoadInventory()
+    public void LoadInventory()
     {
         if (!PlayerPrefs.HasKey(SAVE_KEY)) return;
 
@@ -86,7 +84,7 @@ public class InventoryManager : MonoBehaviour
         inventory = saveData.items;
     }
 
-    float GetGradeMultiplier(ItemGrade grade)
+    public static float GetGradeMultiplier(ItemGrade grade)
     {
         switch (grade)
         {
@@ -112,7 +110,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    float GetDurabilityMultiplier(ItemDurability durability)
+    public static float GetDurabilityMultiplier(ItemDurability durability)
     {
         switch (durability)
         {
@@ -140,25 +138,6 @@ public class InventoryManager : MonoBehaviour
             case ItemDurability.Perfect: return 4.0f;
             default: return 1f;
         }
-    }
-
-    int RollStat(int baseValue, ItemGrade grade, ItemDurability durability)
-    {
-        float gradeMul = GetGradeMultiplier(grade);
-        float durMul = GetDurabilityMultiplier(durability);
-        float rand = Random.Range(0.7f, 1.3f);
-
-        return Mathf.RoundToInt(baseValue * gradeMul * durMul * rand);
-    }
-
-    public static int CalculatePrice (ItemData data, ItemInstance instance)
-    {
-        if (data == null || instance == null) return 0;
-        float price = data.basePrice;
-        price *= GetGradePriceMultiplier(instance.grade);
-        price *= GetDurabilityPriceMultiplier(instance.durability);
-        price *= Random.Range(0.7f, 1.3f);
-        return Mathf.Max(1, Mathf.RoundToInt(price));
     }
 
     public void AddItemInstance(ItemInstance instance)

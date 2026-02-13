@@ -11,6 +11,7 @@ public class EquipmentSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public ItemSlotUI currentSlot;
     public ItemInstance CurrentItem;
     public ItemData CurrentData;
+    private ItemPanelMode mode;
 
     public void Equip(ItemData data, ItemInstance instance)
     {

@@ -7,11 +7,16 @@ public class ItemTooltipUI : MonoBehaviour
 
     public Canvas rootCanvas;
     public GameObject panel;
+    public GameObject smithBtnGroup;
     public Image background;
     public Image icon;
     public Text nameText;
     public Text statText;
+    public Button repairBtn;
+    public Button upgradeBtn;
 
+    private CanvasGroup cg;
+    private ItemInstance currentInstance;
     RectTransform rect;
 
     private void Awake()
@@ -20,9 +25,8 @@ public class ItemTooltipUI : MonoBehaviour
         rect = GetComponent<RectTransform>();
 
         //È­¸é ±ôºýÀÓ ¹æÁö
-        CanvasGroup cg = GetComponent<CanvasGroup>();
+        cg = panel.GetComponent<CanvasGroup>();
         if (cg == null) cg = gameObject.AddComponent<CanvasGroup>();
-        cg.blocksRaycasts = false;
 
         Hide();
     }
@@ -33,19 +37,31 @@ public class ItemTooltipUI : MonoBehaviour
 
         Color gradeColor = ItemGradeColorUtil.GetColor(instance.grade);
 
+        currentInstance = instance;
+
         icon.sprite = data.icon;
         icon.preserveAspect = true;
         background.color = gradeColor;
 
         nameText.text = $"{data.itemName}\n({instance.grade})";
         nameText.color = gradeColor;
-        statText.text = 
+        statText.text =
             instance.GetStatDescription() +
             $"\n³»±¸µµ : {instance.GetDurabilityText()}" +
-            $"\n°¡°Ý : {instance.basePrice}G";
+            $"\n°¡°Ý : {InventoryManager.CalculateFinalPrice(instance, 1f)}G";
 
         panel.SetActive(true);
-        SetPosition(position);
+
+        if (BlacksmithManager.Instance != null && BlacksmithManager.Instance.isBlacksmithMode)
+        {
+            smithBtnGroup.SetActive(true);
+            cg.blocksRaycasts = true;
+        }
+        else
+        {
+            smithBtnGroup.SetActive(false);
+            cg.blocksRaycasts = false;
+        }
     }
 
     public void Hide()
@@ -53,35 +69,17 @@ public class ItemTooltipUI : MonoBehaviour
         panel.SetActive(false);
     }
 
-    void SetPosition(Vector2 screenPos)
+    public void OnClickRepair()
     {
-        RectTransform canvasRect = rootCanvas.GetComponent<RectTransform>();
-
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvasRect,
-            screenPos,
-            rootCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : rootCanvas.worldCamera,
-            out Vector2 localPos
-        );
-
-        // ¸¶¿ì½º¿¡¼­ »ìÂ¦ ¶³¾î¶ß¸®±â
-        localPos += new Vector2(20f, -20f);
-        rect.anchoredPosition = localPos;
-
-        ClampToCanvas(canvasRect);
+        if (currentInstance == null) return;
+        BlacksmithManager.Instance.TryRepair(currentInstance);
+        Hide();
     }
 
-    void ClampToCanvas(RectTransform canvasRect)
+    public void OnClickUpgrade()
     {
-        Vector2 size = rect.sizeDelta;
-        Vector2 pos = rect.anchoredPosition;
-
-        Vector2 min = canvasRect.rect.min + size * rect.pivot;
-        Vector2 max = canvasRect.rect.max - size * (Vector2.one - rect.pivot);
-
-        pos.x = Mathf.Clamp(pos.x, min.x, max.x);
-        pos.y = Mathf.Clamp(pos.y, min.y, max.y);
-
-        rect.anchoredPosition = pos;
+        if (currentInstance == null) return;
+        BlacksmithManager.Instance.TryUpgrade(currentInstance);
+        Hide();
     }
 }

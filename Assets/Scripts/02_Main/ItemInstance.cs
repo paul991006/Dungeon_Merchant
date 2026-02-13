@@ -1,19 +1,50 @@
+using System;
+using UnityEngine;
+
 [System.Serializable]
 public class ItemInstance
 {
     public int itemId;
     public bool isEquipped;
 
-    public int hp;
-    public int heal;
-    public int attack;
-    public int defense;
-    public int price;
-
+    public ItemData data;
     public ItemGrade grade;
     public ItemDurability durability;
 
-    public int basePrice;
+    public float priceSeed;
+    public float statSeed;
+    public int originPrice;
+    
+    public ItemInstance(ItemData data, ItemGrade grade, ItemDurability durability)
+    {
+        this.data = data;
+        this.itemId = data.itemId;
+        this.grade = grade;
+        this.durability = durability;
+
+        isEquipped = false; 
+
+        priceSeed = UnityEngine.Random.Range(0.7f, 1.3f);
+        statSeed = UnityEngine.Random.Range(0.7f, 1.3f);
+        originPrice = Mathf.Max(1, Mathf.RoundToInt(data.basePrice * priceSeed));
+    }
+
+    public int attack => CalculateStat(data.baseAttack);
+    public int defense => CalculateStat(data.baseDefense);
+    public int hp => CalculateStat(data.baseHp);
+    public int heal => CalculateStat(data.baseHeal);
+
+    int CalculateStat(int baseStat)
+    {
+        if (baseStat <= 0) return 0;
+
+        float stat = baseStat;
+        stat *= statSeed;
+        stat *= InventoryManager.GetGradeMultiplier(grade);
+        stat *= InventoryManager.GetDurabilityMultiplier(durability);
+
+        return Mathf.Max(1, Mathf.RoundToInt(stat));
+    }
 
     public string GetStatDescription()
     {
