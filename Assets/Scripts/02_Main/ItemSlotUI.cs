@@ -19,6 +19,8 @@ public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             return;
         }
 
+        instance.data = data;
+
         this.data = data;
         this.instance = instance;
         this.mode = mode;
@@ -76,7 +78,9 @@ public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerClick(PointerEventData eventData)
     {
         if (data == null || instance == null) return;
+
         if (ItemTooltipUI.Instance != null) ItemTooltipUI.Instance.Hide();
+
         if (mode == ItemPanelMode.Storage)
         {
             if (HalfShopPanelUI.Instance != null)
@@ -85,9 +89,16 @@ public class ItemSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 return;
             }
         }
+
         if (mode == ItemPanelMode.Smith)
         {
             ItemTooltipUI.Instance.Show(data, instance, eventData.position);
+            return;
+        }
+
+        if (mode == ItemPanelMode.Sell)
+        {
+            ShopRequestManager.Instance.OnSelectItem(instance);
             return;
         }
 

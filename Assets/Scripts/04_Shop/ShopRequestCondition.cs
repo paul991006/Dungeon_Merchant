@@ -25,4 +25,11 @@ public class ShopRequestCondition
         return  $"등급이 {minGrade}등급 이상이고 상태가 {minDurability} 이상인 " +
                 $"{requiredType} 아이템을 가져오면\n원가보다 {percent}% 더 비싸게 구매할게요!";
     }
+
+    public string GetInfoText()
+    {
+        return $"등급이 {minGrade} 이상이고 " +
+           $"상태가 {minDurability} 이상인 " +
+           $"{requiredType} 아이템";
+    }
 }
